@@ -24,6 +24,7 @@ const Home = () => {
           <Link to="/about">
             <Button variant="outline">Learn More</Button>
           </Link>
+          
         </div>
       </section>
 
