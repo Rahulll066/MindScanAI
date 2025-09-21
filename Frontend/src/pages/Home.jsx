@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import WhyChoose from "../components/WhyChoose";
+import HowitWorks from "../components/HowitWorks";
 
 const Home = () => {
   return (
@@ -28,6 +29,10 @@ const Home = () => {
 
       {/* WhyChoose MindScan Section */}
       <WhyChoose />
+
+      {/* HowitWorks MindScan Section */}
+      <HowitWorks />
+
 
     </div>
   );
