@@ -1,55 +1,32 @@
+// src/pages/Assessment.jsx
 import React from "react";
-import { Link } from "react-router-dom";
-
-const games = [
-  {
-    id: "very-easy-clock",
-    title: "Very Easy - Clock Game",
-    description: "Set the clock hands to the correct time.",
-    link: "/assessment/very-easy-clock",
-  },
-  {
-    id: "easy-word",
-    title: "Easy - Word Remembering",
-    description: "Memorize words shown for a few seconds and recall them.",
-    link: "/assessment/easy-word",
-  },
-  {
-    id: "medium-story",
-    title: "Medium - Story Remembering",
-    description: "Read a short story and answer questions after delay.",
-    link: "/assessment/medium-story",
-  },
-  {
-    id: "hard-numbers",
-    title: "Hard - Numbers Connecting",
-    description: "Connect numbers in correct sequence under time pressure.",
-    link: "/assessment/hard-numbers",
-  },
-];
+import { useNavigate } from "react-router-dom";
 
 const Assessment = () => {
+  const navigate = useNavigate();
+
+  const handleStart = () => {
+    navigate("/assessment/very-easy-clock"); // start from the first test
+  };
+
   return (
-    <section className="py-20 max-w-6xl mx-auto px-6">
-      <h2 className="text-4xl font-bold text-center mb-12">Choose Your Test</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {games.map((game) => (
-          <div
-            key={game.id}
-            className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between"
-          >
-            <h3 className="text-xl font-semibold mb-3">{game.title}</h3>
-            <p className="text-gray-600 mb-4">{game.description}</p>
-            <Link
-              to={game.link}
-              className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 text-center"
-            >
-              Start Test
-            </Link>
-          </div>
-        ))}
-      </div>
-    </section>
+    <div className="max-w-3xl mx-auto py-20 text-center">
+      <h2 className="text-4xl font-bold mb-6 text-blue-700">
+        Check Your Risk of Dementia
+      </h2>
+      <p className="text-lg text-gray-600 mb-8">
+        Begin our scientifically designed assessment to analyze your cognitive
+        health. The test takes about 15–20 minutes and includes multiple short
+        activities.
+      </p>
+
+      <button
+        onClick={handleStart}
+        className="bg-blue-600 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:bg-blue-700 transition"
+      >
+        Start Assessment
+      </button>
+    </div>
   );
 };
 

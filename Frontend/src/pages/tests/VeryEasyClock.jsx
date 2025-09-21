@@ -1,26 +1,29 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAssessment } from "../../context/AssessmentContext";
 
 const VeryEasyClock = () => {
-  const [targetTime] = useState(() => {
-    const h = Math.floor(Math.random() * 12) + 1;
-    const m = Math.floor(Math.random() * 60);
-    return { h, m };
+  const [targetTime] = useState({
+    h: Math.floor(Math.random() * 12) + 1,
+    m: Math.floor(Math.random() * 60),
   });
   const [input, setInput] = useState({ h: "", m: "" });
-  const [result, setResult] = useState(null);
+  const { updateScore } = useAssessment();
+  const navigate = useNavigate();
 
-  const checkAnswer = () => {
-    if (parseInt(input.h) === targetTime.h && parseInt(input.m) === targetTime.m) {
-      setResult("✅ Correct! Great job.");
-    } else {
-      setResult(`❌ Wrong! The correct time was ${targetTime.h}:${targetTime.m}`);
-    }
+  const handleSubmit = () => {
+    let score = 0;
+    if (parseInt(input.h) === targetTime.h) score += 50;
+    if (parseInt(input.m) === targetTime.m) score += 50;
+
+    updateScore("clock", score);
+    navigate("/assessment/easy-word");
   };
 
   return (
     <div className="max-w-lg mx-auto py-20 text-center">
-      <h2 className="text-2xl font-bold mb-6">Set the Clock</h2>
-      <p className="mb-4">Target Time: {targetTime.h}:{targetTime.m}</p>
+      <h2 className="text-2xl font-bold mb-6">Clock Test</h2>
+      <p className="mb-4">Set this time: {targetTime.h}:{targetTime.m}</p>
       <div className="flex justify-center gap-4 mb-6">
         <input
           type="number"
@@ -38,12 +41,11 @@ const VeryEasyClock = () => {
         />
       </div>
       <button
-        onClick={checkAnswer}
+        onClick={handleSubmit}
         className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
       >
-        Submit
+        Submit & Continue
       </button>
-      {result && <p className="mt-4">{result}</p>}
     </div>
   );
 };

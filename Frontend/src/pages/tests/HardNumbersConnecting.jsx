@@ -1,20 +1,22 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAssessment } from "../../context/AssessmentContext";
 
-const numbers = [1, 2, 3, 4, 5].sort(() => Math.random() - 0.5);
+const shuffled = [1, 2, 3, 4, 5].sort(() => Math.random() - 0.5);
 
 const HardNumbersConnecting = () => {
   const [sequence, setSequence] = useState([]);
-  const [result, setResult] = useState(null);
+  const { updateScore } = useAssessment();
+  const navigate = useNavigate();
 
   const handleClick = (num) => {
     setSequence((prev) => {
       const newSeq = [...prev, num];
-      if (newSeq.length === numbers.length) {
-        if (JSON.stringify(newSeq) === JSON.stringify([1, 2, 3, 4, 5])) {
-          setResult("✅ Correct Sequence!");
-        } else {
-          setResult("❌ Wrong Order! Try again.");
-        }
+      if (newSeq.length === shuffled.length) {
+        const correctSeq = JSON.stringify(newSeq) === JSON.stringify([1,2,3,4,5]);
+        const score = correctSeq ? 100 : 0;
+        updateScore("numbers", score);
+        navigate("/assessment/results");
       }
       return newSeq;
     });
@@ -24,7 +26,7 @@ const HardNumbersConnecting = () => {
     <div className="max-w-lg mx-auto py-20 text-center">
       <h2 className="text-2xl font-bold mb-6">Numbers Connecting Test</h2>
       <div className="flex gap-4 justify-center mb-6">
-        {numbers.map((num, idx) => (
+        {shuffled.map((num, idx) => (
           <button
             key={idx}
             onClick={() => handleClick(num)}
@@ -34,9 +36,9 @@ const HardNumbersConnecting = () => {
           </button>
         ))}
       </div>
-      {result && <p className="mt-4">{result}</p>}
     </div>
   );
 };
 
 export default HardNumbersConnecting;
+

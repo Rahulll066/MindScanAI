@@ -1,26 +1,32 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAssessment } from "../../context/AssessmentContext";
 
 const words = ["apple", "table", "river", "house", "moon"];
 
 const EasyWordRemembering = () => {
   const [showWords, setShowWords] = useState(true);
   const [input, setInput] = useState("");
-  const [result, setResult] = useState(null);
+  const { updateScore } = useAssessment();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowWords(false), 5000); // show 5s
+    const timer = setTimeout(() => setShowWords(false), 5000);
     return () => clearTimeout(timer);
   }, []);
 
-  const checkAnswer = () => {
+  const handleSubmit = () => {
     const remembered = input.split(" ").map((w) => w.toLowerCase());
     const correct = words.filter((w) => remembered.includes(w));
-    setResult(`You remembered ${correct.length}/${words.length} words.`);
+    const score = (correct.length / words.length) * 100;
+
+    updateScore("word", Math.round(score));
+    navigate("/assessment/medium-story");
   };
 
   return (
     <div className="max-w-lg mx-auto py-20 text-center">
-      <h2 className="text-2xl font-bold mb-6">Word Remembering Test</h2>
+      <h2 className="text-2xl font-bold mb-6">Word Memory Test</h2>
       {showWords ? (
         <p className="text-xl">{words.join(", ")}</p>
       ) : (
@@ -33,12 +39,11 @@ const EasyWordRemembering = () => {
             className="border p-2 rounded w-full mb-4"
           />
           <button
-            onClick={checkAnswer}
+            onClick={handleSubmit}
             className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
           >
-            Submit
+            Submit & Continue
           </button>
-          {result && <p className="mt-4">{result}</p>}
         </div>
       )}
     </div>
