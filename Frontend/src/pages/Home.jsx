@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import WhyChoose from "../components/WhyChoose";
 import HowitWorks from "../components/HowitWorks";
+import Testimonials from "../components/testimonials";
+import FAQ from "../components/faq";
 
 const Home = () => {
   return (
@@ -18,7 +20,7 @@ const Home = () => {
           tests and AI-powered analysis.
         </p>
         <div className="flex justify-center gap-4">
-          <Link to="/">
+          <Link to="/assessment">
             <Button>Start Assessment</Button>
           </Link>
           <Link to="/about">
@@ -33,6 +35,12 @@ const Home = () => {
       {/* HowitWorks MindScan Section */}
       <HowitWorks />
 
+      {/* Testimonials Section */}
+      <Testimonials />
+
+      {/* FAQ Section */}
+      <FAQ />
+      
 
     </div>
   );
