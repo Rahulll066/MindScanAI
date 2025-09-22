@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
 import multer from "multer";
 import path from "path";
+import fs from "fs";
 
 const router = express.Router();
 
@@ -23,17 +24,23 @@ const authMiddleware = (req, res, next) => {
   }
 };
 
-// File upload setup
+// Ensure uploads folder exists
+const uploadDir = "uploads/";
+if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
+
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, "uploads/"),
-  filename: (req, file, cb) => cb(null, Date.now() + path.extname(file.originalname))
+  destination: (req, file, cb) => cb(null, uploadDir),
+  filename: (req, file, cb) => cb(null, Date.now() + path.extname(file.originalname)),
 });
+
 const upload = multer({ storage });
 
-// Get logged-in user info
+// Get profile
 router.get("/profile", authMiddleware, async (req, res) => {
   try {
-    const user = await User.findById(req.userId).select("firstName lastName email age gender medicalPhotos");
+    const user = await User.findById(req.userId).select(
+      "firstName lastName email age gender avatar notes reminders settings"
+    );
     if (!user) return res.status(404).json({ message: "User not found" });
     res.json(user);
   } catch (err) {
@@ -41,18 +48,18 @@ router.get("/profile", authMiddleware, async (req, res) => {
   }
 });
 
-// Update user profile
-router.put("/profile", authMiddleware, upload.array("medicalPhotos"), async (req, res) => {
+// Update profile
+router.put("/profile", authMiddleware, upload.single("avatar"), async (req, res) => {
   try {
-    const { age, gender } = req.body;
+    const { age, gender, notes, reminders } = req.body;
     const user = await User.findById(req.userId);
     if (!user) return res.status(404).json({ message: "User not found" });
 
     user.age = age ?? user.age;
     user.gender = gender ?? user.gender;
-    if (req.files && req.files.length > 0) {
-      user.medicalPhotos = req.files.map(file => file.path);
-    }
+    user.notes = notes ? JSON.parse(notes) : user.notes ?? [];
+    user.reminders = reminders ? JSON.parse(reminders) : user.reminders ?? [];
+    if (req.file) user.avatar = req.file.path;
 
     await user.save();
     res.json({ message: "Profile updated successfully", user });
@@ -62,3 +69,5 @@ router.put("/profile", authMiddleware, upload.array("medicalPhotos"), async (req
 });
 
 export default router;
+
+

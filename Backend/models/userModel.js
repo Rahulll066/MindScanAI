@@ -7,8 +7,12 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   age: { type: Number },
   gender: { type: String },
-  medicalPhotos: [{ type: String }] // store file paths
+  avatar: { type: String }, // avatar file path
+  notes: [{ type: String }], // personal notes
+  reminders: [{ type: String }], // lifestyle reminders
 });
 
 const User = mongoose.model("User", userSchema);
 export default User;
+
+

@@ -11,6 +11,7 @@ import VeryEasyClock from "./pages/tests/VeryEasyClock";
 import EasyWordRemembering from "./pages/tests/EasyWordRemembering";
 import MediumStoryRemembering from "./pages/tests/MediumStoryRemembering";
 import HardNumbersConnecting from "./pages/tests/HardNumbersConnecting";
+import MemoryMatchGame from "./pages/tests/MemoryMatchGame";
 import Results from "./pages/Results";
 import Profile from "./pages/Profile";
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/assessment/easy-word" element={<EasyWordRemembering />} />
         <Route path="/assessment/medium-story" element={<MediumStoryRemembering />} />
         <Route path="/assessment/hard-numbers" element={<HardNumbersConnecting />} />
+        <Route path="/assessment/memory-match" element={<MemoryMatchGame />} />
         <Route path="/assessment/results" element={<Results />} />
       </Routes>
       <Footer />

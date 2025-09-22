@@ -1,3 +1,4 @@
+// src/pages/Signup.jsx
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -21,8 +22,8 @@ const Signup = () => {
     e.preventDefault();
     try {
       const res = await axios.post("http://localhost:5000/api/signup", formData);
-      
-      // ✅ store token immediately if backend returns token
+
+      // Store token if backend returns it
       if (res.data.token) {
         localStorage.setItem("token", res.data.token);
         window.dispatchEvent(new Event("storage")); // update Navbar
@@ -50,41 +51,54 @@ const Signup = () => {
             <span>Signup completed! Redirecting...</span>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <input
-              type="text"
-              name="firstName"
-              placeholder="First Name"
-              onChange={handleChange}
-              className="w-full border rounded px-3 py-2"
-              required
-            />
-            <input
-              type="text"
-              name="lastName"
-              placeholder="Last Name"
-              onChange={handleChange}
-              className="w-full border rounded px-3 py-2"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              onChange={handleChange}
-              className="w-full border rounded px-3 py-2"
-              required
-            />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={handleChange}
-              className="w-full border rounded px-3 py-2"
-              required
-            />
-            <Button className="w-full">Sign Up</Button>
-          </form>
+          <>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                onChange={handleChange}
+                className="w-full border rounded px-3 py-2"
+                required
+              />
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                onChange={handleChange}
+                className="w-full border rounded px-3 py-2"
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                onChange={handleChange}
+                className="w-full border rounded px-3 py-2"
+                required
+              />
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={handleChange}
+                className="w-full border rounded px-3 py-2"
+                required
+              />
+              <Button className="w-full">Sign Up</Button>
+            </form>
+
+            {/* Link for existing users */}
+            <p className="mt-4 text-center text-sm text-gray-600">
+              Already have an account?{" "}
+              <span
+                className="text-blue-600 font-semibold cursor-pointer hover:underline"
+                onClick={() => navigate("/login")}
+              >
+                Sign in
+              </span>
+            </p>
+          </>
         )}
       </div>
     </div>
@@ -92,5 +106,6 @@ const Signup = () => {
 };
 
 export default Signup;
+
 
 

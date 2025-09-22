@@ -6,7 +6,15 @@ const Assessment = () => {
   const navigate = useNavigate();
 
   const handleStart = () => {
-    navigate("/assessment/very-easy-clock"); // start from the first test
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      // User not logged in → redirect to signup
+      navigate("/signup");
+    } else {
+      // User logged in → proceed to assessment
+      navigate("/assessment/very-easy-clock");
+    }
   };
 
   return (
@@ -31,4 +39,5 @@ const Assessment = () => {
 };
 
 export default Assessment;
+
 
