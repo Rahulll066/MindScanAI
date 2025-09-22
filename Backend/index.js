@@ -5,6 +5,7 @@ import cors from "cors";
 import connectDB from "./db.js";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js"; // <-- import userRoutes
+import path from "path";
 
 const app = express();
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
@@ -12,9 +13,12 @@ app.use(json());
 
 connectDB(); // connect to MongoDB
 
+// Serve uploaded files
+app.use("/uploads", express.static(path.join(path.resolve(), "uploads"))); // <-- add this
+
 // Mount routes
-app.use("/api", authRoutes);       // your existing auth routes
-app.use("/api/user", userRoutes);  // <-- add this line for profile route
+app.use("/api", authRoutes);       // auth routes
+app.use("/api/user", userRoutes);  // profile routes
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

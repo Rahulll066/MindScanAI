@@ -5,7 +5,10 @@ const userSchema = new mongoose.Schema({
   lastName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  age: { type: Number },
+  gender: { type: String },
+  medicalPhotos: [{ type: String }] // store file paths
 });
 
 const User = mongoose.model("User", userSchema);
-export default User; 
+export default User;
