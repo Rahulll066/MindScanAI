@@ -12,6 +12,7 @@ import EasyWordRemembering from "./pages/tests/EasyWordRemembering";
 import MediumStoryRemembering from "./pages/tests/MediumStoryRemembering";
 import HardNumbersConnecting from "./pages/tests/HardNumbersConnecting";
 import Results from "./pages/Results";
+import Profile from "./pages/Profile";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/about" element={<About />} />
         <Route path="/assessment" element={<Assessment />} />
         <Route path="/assessment/very-easy-clock" element={<VeryEasyClock />} />

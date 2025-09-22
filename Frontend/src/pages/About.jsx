@@ -17,12 +17,12 @@ const About = () => {
         </p>
       </section>
 
-      {/* The Mind Behind MindScanAI */}
+            {/* The Mind Behind MindScanAI */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold mb-10 text-center text-gray-800">
           The Mind Behind MindScanAI
         </h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 justify-center">
           <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition text-center">
             <Brain className="w-12 h-12 mx-auto mb-4 text-blue-600" />
             <h3 className="text-xl font-semibold mb-2 text-gray-800">Smart AI Analysis</h3>
@@ -35,13 +35,6 @@ const About = () => {
             <h3 className="text-xl font-semibold mb-2 text-gray-800">Health Impact</h3>
             <p className="text-gray-600">
               Empowers families and healthcare providers to take timely action for better outcomes.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition text-center">
-            <Shield className="w-12 h-12 mx-auto mb-4 text-blue-600" />
-            <h3 className="text-xl font-semibold mb-2 text-gray-800">Privacy & Security</h3>
-            <p className="text-gray-600">
-              User data is handled safely, ensuring confidentiality and trust throughout the process.
             </p>
           </div>
         </div>

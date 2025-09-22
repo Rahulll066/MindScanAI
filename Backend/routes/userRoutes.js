@@ -4,7 +4,7 @@ import User from "../models/userModel.js";
 
 const router = express.Router();
 
-// middleware to verify token
+// Middleware to verify token
 const authMiddleware = (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (!authHeader) return res.status(401).json({ message: "No token provided" });
@@ -21,8 +21,8 @@ const authMiddleware = (req, res, next) => {
   }
 };
 
-// ✅ Route to get logged-in user info
-router.get("/me", authMiddleware, async (req, res) => {
+// Route to get logged-in user info
+router.get("/profile", authMiddleware, async (req, res) => {
   try {
     const user = await User.findById(req.userId).select("firstName lastName email");
     if (!user) return res.status(404).json({ message: "User not found" });
@@ -33,4 +33,3 @@ router.get("/me", authMiddleware, async (req, res) => {
 });
 
 export default router;
-
