@@ -1,81 +1,70 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
-import { Brain, HeartPulse, Shield, Users, Activity, CheckCircle, Share2, Globe } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { Brain, HeartPulse, Shield, Users, Activity, Share2, Globe } from "lucide-react";
 
 const About = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-gray-50 text-gray-800">
-      {/* Hero Section - matched to Home */}
+      {/* Hero Section */}
       <section className="text-center py-20 bg-gradient-to-r from-blue-100 to-blue-50">
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          About <span className="text-blue-600">MindScanAI</span>
+          {t("about.heroTitle")} <span className="text-blue-600">{t("about.heroTitleHighlight")}</span>
         </h1>
         <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-600">
-          A simple platform for early detection of dementia using cognitive tests
-          and AI-powered analysis. Smarter. Simpler. Sooner.
+          {t("about.heroSubtitle")}
         </p>
       </section>
 
-            {/* The Mind Behind MindScanAI */}
+      {/* The Mind Behind MindScanAI */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold mb-10 text-center text-gray-800">
-          The Mind Behind MindScanAI
+          {t("about.mindTitle")}
         </h2>
         <div className="grid md:grid-cols-2 gap-8 justify-center">
           <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition text-center">
             <Brain className="w-12 h-12 mx-auto mb-4 text-blue-600" />
-            <h3 className="text-xl font-semibold mb-2 text-gray-800">Smart AI Analysis</h3>
-            <p className="text-gray-600">
-              Detects early signs of dementia accurately using AI-powered cognitive patterns.
-            </p>
+            <h3 className="text-xl font-semibold mb-2 text-gray-800">{t("about.mindFeatures.aiTitle")}</h3>
+            <p className="text-gray-600">{t("about.mindFeatures.aiDesc")}</p>
           </div>
           <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition text-center">
             <HeartPulse className="w-12 h-12 mx-auto mb-4 text-blue-600" />
-            <h3 className="text-xl font-semibold mb-2 text-gray-800">Health Impact</h3>
-            <p className="text-gray-600">
-              Empowers families and healthcare providers to take timely action for better outcomes.
-            </p>
+            <h3 className="text-xl font-semibold mb-2 text-gray-800">{t("about.mindFeatures.healthTitle")}</h3>
+            <p className="text-gray-600">{t("about.mindFeatures.healthDesc")}</p>
           </div>
         </div>
       </section>
 
-      {/* User Assurance Section (What You Get) */}
+      {/* What You Get */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold mb-10 text-center text-gray-800">What You Get</h2>
+        <h2 className="text-3xl font-bold mb-10 text-center text-gray-800">{t("about.whatYouGetTitle")}</h2>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition text-center">
             <Brain className="w-12 h-12 mx-auto mb-4 text-blue-600" />
-            <h3 className="text-xl font-semibold mb-2 text-gray-800">Accurate AI Results</h3>
-            <p className="text-gray-600">
-              Our AI-powered platform provides precise insights into early signs of dementia.
-            </p>
+            <h3 className="text-xl font-semibold mb-2 text-gray-800">{t("about.whatYouGet.aiResultsTitle")}</h3>
+            <p className="text-gray-600">{t("about.whatYouGet.aiResultsDesc")}</p>
           </div>
           <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition text-center">
             <Shield className="w-12 h-12 mx-auto mb-4 text-blue-600" />
-            <h3 className="text-xl font-semibold mb-2 text-gray-800">Privacy & Security</h3>
-            <p className="text-gray-600">
-              All user data is kept completely private and secure throughout the process.
-            </p>
+            <h3 className="text-xl font-semibold mb-2 text-gray-800">{t("about.whatYouGet.privacyTitle")}</h3>
+            <p className="text-gray-600">{t("about.whatYouGet.privacyDesc")}</p>
           </div>
           <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition text-center">
             <Share2 className="w-12 h-12 mx-auto mb-4 text-blue-600" />
-            <h3 className="text-xl font-semibold mb-2 text-gray-800">Optional Sharing</h3>
-            <p className="text-gray-600">
-              Users have full control to share their results with family or healthcare professionals.
-            </p>
+            <h3 className="text-xl font-semibold mb-2 text-gray-800">{t("about.whatYouGet.sharingTitle")}</h3>
+            <p className="text-gray-600">{t("about.whatYouGet.sharingDesc")}</p>
           </div>
         </div>
       </section>
 
       {/* Why This Project */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Why This Project?</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">{t("about.whyProjectTitle")}</h2>
         <p className="text-lg leading-relaxed text-center max-w-3xl mx-auto text-gray-600">
-          Dementia affects millions worldwide, yet diagnosis often comes late.
-          Our mission is to make early detection accessible, affordable, and reliable
-          through modern technology. By identifying signs early, we empower families
-          and healthcare providers to take timely action.
+          {t("about.whyProjectDesc")}
         </p>
       </section>
 
@@ -83,12 +72,9 @@ const About = () => {
       <section className="bg-white py-16">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <h2 className="text-3xl font-bold mb-4 text-gray-800">Our Approach</h2>
+            <h2 className="text-3xl font-bold mb-4 text-gray-800">{t("about.approachTitle")}</h2>
             <p className="text-lg leading-relaxed text-gray-600">
-              We combine <span className="font-semibold">cognitive assessments</span>
-              (memory, reasoning, attention) with <span className="font-semibold">AI-driven analysis</span> to detect
-              patterns that may indicate early dementia. The platform is designed to
-              be easy-to-use for all age groups, with interactive tests and instant insights.
+              {t("about.approachDesc")}
             </p>
           </div>
           <Brain className="w-40 h-40 mx-auto text-blue-600" />
@@ -97,41 +83,36 @@ const About = () => {
 
       {/* Key Benefits */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold mb-10 text-center text-gray-800">Key Benefits</h2>
+        <h2 className="text-3xl font-bold mb-10 text-center text-gray-800">{t("about.keyBenefitsTitle")}</h2>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition text-center">
             <Users className="w-12 h-12 mx-auto mb-4 text-blue-600" />
-            <h3 className="text-xl font-semibold mb-2 text-gray-800">Accessible Testing</h3>
-            <p className="text-gray-600">Simple assessments that can be done at home by anyone, anytime.</p>
+            <h3 className="text-xl font-semibold mb-2 text-gray-800">{t("about.keyBenefits.accessibleTitle")}</h3>
+            <p className="text-gray-600">{t("about.keyBenefits.accessibleDesc")}</p>
           </div>
           <div className="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition text-center">
             <Activity className="w-12 h-12 mx-auto mb-4 text-blue-600" />
-            <h3 className="text-xl font-semibold mb-2 text-gray-800">Accurate Insights</h3>
-            <p className="text-gray-600">AI models trained on research data ensure reliable detection patterns.</p>
+            <h3 className="text-xl font-semibold mb-2 text-gray-800">{t("about.keyBenefits.accurateTitle")}</h3>
+            <p className="text-gray-600">{t("about.keyBenefits.accurateDesc")}</p>
           </div>
           <div className="bg-gray-100 p-6 rounded-xl shadow hover:shadow-lg transition text-center">
             <Globe className="w-12 h-12 mx-auto mb-4 text-blue-600" />
-            <h3 className="text-xl font-semibold mb-2 text-gray-800">Affordable & Scalable</h3>
-            <p className="text-gray-600">Designed to reach communities with limited access to healthcare.</p>
+            <h3 className="text-xl font-semibold mb-2 text-gray-800">{t("about.keyBenefits.affordableTitle")}</h3>
+            <p className="text-gray-600">{t("about.keyBenefits.affordableDesc")}</p>
           </div>
         </div>
       </section>
 
       {/* Vision */}
       <section className="bg-gradient-to-r from-blue-50 to-blue-100 py-16 text-center">
-        <h2 className="text-3xl font-bold mb-4 text-gray-800">Our Vision</h2>
-        <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-600">
-          We believe technology can transform healthcare. By enabling early
-          dementia detection, we aim to improve quality of life, reduce the burden
-          on caregivers, and support healthcare professionals in making
-          data-driven decisions.
-        </p>
+        <h2 className="text-3xl font-bold mb-4 text-gray-800">{t("about.visionTitle")}</h2>
+        <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-600">{t("about.visionDesc")}</p>
       </section>
 
       {/* Call to Action */}
       <div className="text-center py-16">
         <Link to="/assessment">
-          <Button>Start Your Assessment</Button>
+          <Button>{t("about.cta")}</Button>
         </Link>
       </div>
     </div>
@@ -139,3 +120,4 @@ const About = () => {
 };
 
 export default About;
+

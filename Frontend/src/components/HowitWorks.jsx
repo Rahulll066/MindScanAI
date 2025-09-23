@@ -1,34 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ClipboardList, Cpu, FileText, UserCheck } from "lucide-react";
-
-const steps = [
-  {
-    title: "Take Assessment",
-    description:
-      "Complete our 15-minute cognitive assessment from the comfort of your home.",
-    icon: ClipboardList,
-  },
-  {
-    title: "AI Analysis",
-    description:
-      "Our advanced AI analyzes your responses using patterns from millions of data points.",
-    icon: Cpu,
-  },
-  {
-    title: "Get Results",
-    description:
-      "Receive a detailed report with risk assessment and personalized recommendations.",
-    icon: FileText,
-  },
-  {
-    title: "Take Action",
-    description:
-      "Work with healthcare providers using our insights for early intervention strategies.",
-    icon: UserCheck,
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const HowItWorks = () => {
+  const { t } = useTranslation();
   const lineRef = useRef(null);
   const containerRef = useRef(null);
   const [fillWidth, setFillWidth] = useState(0);
@@ -37,7 +12,7 @@ const HowItWorks = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setFillWidth(100); // fill the line when visible
+          setFillWidth(100);
         }
       },
       { threshold: 0.3 }
@@ -50,9 +25,34 @@ const HowItWorks = () => {
     };
   }, []);
 
+  const steps = [
+    {
+      title: t("steps.assessment.title"),
+      description: t("steps.assessment.desc"),
+      icon: ClipboardList,
+    },
+    {
+      title: t("steps.ai.title"),
+      description: t("steps.ai.desc"),
+      icon: Cpu,
+    },
+    {
+      title: t("steps.results.title"),
+      description: t("steps.results.desc"),
+      icon: FileText,
+    },
+    {
+      title: t("steps.action.title"),
+      description: t("steps.action.desc"),
+      icon: UserCheck,
+    },
+  ];
+
   return (
     <section className="py-20 bg-white" ref={containerRef}>
-      <h2 className="text-4xl font-bold text-center mb-12">How It Works</h2>
+      <h2 className="text-4xl font-bold text-center mb-12">
+        {t("howItWorks")}
+      </h2>
 
       <div className="max-w-6xl mx-auto px-4 relative flex flex-col md:flex-row justify-between items-start md:items-center">
         {/* Static horizontal line */}

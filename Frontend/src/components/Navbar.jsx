@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Button from "./Button";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem("token") || null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t, i18n } = useTranslation();
 
   const fetchUser = async (token) => {
     if (!token) return setUser(null);
@@ -36,19 +38,28 @@ const Navbar = () => {
     setMenuOpen(false);
   };
 
+  const toggleLanguage = () => {
+    const newLang = i18n.language === "en" ? "hi" : "en";
+    i18n.changeLanguage(newLang);
+    localStorage.setItem("lang", newLang);
+  };
+
   return (
     <nav className="flex justify-between items-center px-6 py-4 shadow-md bg-white relative">
       <Link to="/" className="text-2xl font-bold text-blue-600">
-        MindScanAI
+        {t("appName")}
       </Link>
+
       <div className="flex gap-4 items-center">
+        {/* Language Switch Button */}
+        <Button variant="outline" onClick={toggleLanguage}>
+          {i18n.language === "en" ? "हिंदी" : "English"}
+        </Button>
+
         {user ? (
           <div className="relative">
-            <Button
-              variant="outline"
-              onClick={() => setMenuOpen(!menuOpen)}
-            >
-              {user.firstName || "Profile"}
+            <Button variant="outline" onClick={() => setMenuOpen(!menuOpen)}>
+              {user.firstName || t("profile.title")} {/* fixed key */}
             </Button>
 
             {menuOpen && (
@@ -58,13 +69,13 @@ const Navbar = () => {
                   className="block px-4 py-2 hover:bg-gray-100"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Profile
+                  {t("profile.title")} {/* fixed key */}
                 </Link>
                 <button
                   onClick={handleLogout}
                   className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-red-500"
                 >
-                  Logout
+                  {t("logout")}
                 </button>
               </div>
             )}
@@ -72,10 +83,10 @@ const Navbar = () => {
         ) : (
           <>
             <Link to="/login">
-              <Button variant="outline">Login</Button>
+              <Button variant="outline">{t("login.button")}</Button> {/* fixed key */}
             </Link>
             <Link to="/signup">
-              <Button>Signup</Button>
+              <Button>{t("signup.button")}</Button> {/* fixed key */}
             </Link>
           </>
         )}
@@ -85,3 +96,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
