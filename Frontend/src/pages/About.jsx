@@ -9,7 +9,7 @@ const About = () => {
       {/* Hero Section - matched to Home */}
       <section className="text-center py-20 bg-gradient-to-r from-blue-100 to-blue-50">
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          About <span className="text-blue-600">MindScanAI</span>
+          About <span className="text-blue-600">NeurocareAI</span>
         </h1>
         <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-600">
           A simple platform for early detection of dementia using cognitive tests
@@ -17,10 +17,10 @@ const About = () => {
         </p>
       </section>
 
-            {/* The Mind Behind MindScanAI */}
+            {/* The Mind Behind NeurocareAI */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold mb-10 text-center text-gray-800">
-          The Mind Behind MindScanAI
+          The Mind Behind NeurocareAI
         </h2>
         <div className="grid md:grid-cols-2 gap-8 justify-center">
           <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition text-center">

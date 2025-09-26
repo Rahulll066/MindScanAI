@@ -39,7 +39,7 @@ export default function WhyChoose() {
     <section className="py-16 bg-gray-50" id="why-choose">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
         <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-12">
-          Why Choose <span className="text-blue-600">MindScanAI</span>
+          Why Choose <span className="text-blue-600">NeurocareAI</span>
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

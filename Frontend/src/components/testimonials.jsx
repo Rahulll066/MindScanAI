@@ -4,7 +4,7 @@ import { Star } from "lucide-react"; // star icon
 const testimonials = [
   {
     quote:
-      "MindScan's AI technology has revolutionized how we approach early dementia detection. The accuracy and early detection capabilities are unprecedented.",
+  "NeurocareAI's technology has revolutionized how we approach early dementia detection. The accuracy and early detection capabilities are unprecedented.",
     initials: "DSC",
     name: "Dr. Sarah Chen",
     role: "Neurologist, Stanford Medical Center",
@@ -12,7 +12,7 @@ const testimonials = [
   },
   {
     quote:
-      "Thanks to MindScan, we caught early signs that my doctor missed. Now I'm getting the care I need and my family has peace of mind.",
+  "Thanks to NeurocareAI, we caught early signs that my doctor missed. Now I'm getting the care I need and my family has peace of mind.",
     initials: "MW",
     name: "Margaret Williams",
     role: "Patient, Age 72",
@@ -20,7 +20,7 @@ const testimonials = [
   },
   {
     quote:
-      "The clinical validation and accuracy of MindScan's AI model is remarkable. It's become an essential tool in our diagnostic process.",
+  "The clinical validation and accuracy of NeurocareAI's AI model is remarkable. It's become an essential tool in our diagnostic process.",
     initials: "DMR",
     name: "Dr. Michael Rodriguez",
     role: "Chief of Neurology, Mayo Clinic",

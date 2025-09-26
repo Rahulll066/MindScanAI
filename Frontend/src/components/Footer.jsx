@@ -7,9 +7,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* About Section */}
         <div className="space-y-3">
-          <h3 className="text-lg font-semibold text-blue-900">About MindScanAI</h3>
+          <h3 className="text-lg font-semibold text-blue-900">About NeurocareAI</h3>
           <p className="text-gray-700 text-sm">
-            MindScanAI uses advanced AI to help detect early signs of dementia through simple at-home cognitive assessments.
+            NeurocareAI uses advanced AI to help detect early signs of dementia through simple at-home cognitive assessments.
           </p>
         </div>
 
@@ -39,14 +39,14 @@ const Footer = () => {
             Call us: <a href="tel:+1234567890" className="text-blue-600 hover:underline">+1 234 567 890</a>
           </p>
           <p className="text-gray-700 text-sm">
-            Email: <a href="mailto:info@mindscanai.com" className="text-blue-600 hover:underline">info@mindscanai.com</a>
+            Email: <a href="mailto:info@neurocareai.com" className="text-blue-600 hover:underline">info@neurocareai.com</a>
           </p>
         </div>
       </div>
 
       {/* Bottom copyright */}
       <div className="text-center py-4 border-t border-blue-200 text-blue-900 text-sm">
-        © {new Date().getFullYear()} MindScanAI. All rights reserved.
+  © {new Date().getFullYear()} NeurocareAI. All rights reserved.
       </div>
     </footer>
   );

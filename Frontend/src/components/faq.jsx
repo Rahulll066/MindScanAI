@@ -9,9 +9,9 @@ import { ChevronDown } from "lucide-react"; // small down arrow icon
 
 const faqItems = [
   {
-    question: "Is MindScan's AI assessment safe to use at home?",
+  question: "Is NeurocareAI's AI assessment safe to use at home?",
     answer:
-      "Yes! MindScan's AI assessments are completely safe and designed for home use. All data is encrypted and HIPAA compliant.",
+  "Yes! NeurocareAI's AI assessments are completely safe and designed for home use. All data is encrypted and HIPAA compliant.",
   },
   {
     question: "How long does the cognitive assessment take?",
@@ -19,29 +19,29 @@ const faqItems = [
       "The assessment typically takes about 15 minutes and includes memory, speech, and cognitive function tasks.",
   },
   {
-    question: "Can MindScan detect dementia early?",
+  question: "Can NeurocareAI detect dementia early?",
     answer:
-      "MindScan’s AI analyzes cognitive patterns to detect early signs of dementia. However, it is not a substitute for professional medical diagnosis.",
+  "NeurocareAI’s AI analyzes cognitive patterns to detect early signs of dementia. However, it is not a substitute for professional medical diagnosis.",
   },
   {
-    question: "Is my personal data safe with MindScan?",
+  question: "Is my personal data safe with NeurocareAI?",
     answer:
       "Absolutely. All personal and health data is securely stored, encrypted, and only shared with authorized healthcare personnel if you consent.",
   },
   {
     question: "Do I need a doctor to interpret the results?",
     answer:
-      "You can view your results directly through MindScan, but consulting a healthcare professional is recommended for personalized advice.",
+  "You can view your results directly through NeurocareAI, but consulting a healthcare professional is recommended for personalized advice.",
   },
   {
-    question: "Is MindScan suitable for all age groups?",
+  question: "Is NeurocareAI suitable for all age groups?",
     answer:
-      "MindScan is designed primarily for adults, especially those aged 50 and above, but younger adults can also use it for cognitive monitoring.",
+  "NeurocareAI is designed primarily for adults, especially those aged 50 and above, but younger adults can also use it for cognitive monitoring.",
   },
   {
-    question: "How accurate is MindScan's AI?",
+  question: "How accurate is NeurocareAI's AI?",
     answer:
-      "MindScan's AI is clinically validated and trained on millions of data points, providing highly reliable early detection insights, but it does not replace professional medical advice.",
+  "NeurocareAI's AI is clinically validated and trained on millions of data points, providing highly reliable early detection insights, but it does not replace professional medical advice.",
   },
   {
     question: "Can family members access my results?",
@@ -60,7 +60,7 @@ const FAQ = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Everything you need to know about MindScan's AI-powered dementia detection.
+            Everything you need to know about NeurocareAI's AI-powered dementia detection.
           </p>
         </div>
 

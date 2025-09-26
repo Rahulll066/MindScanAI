@@ -39,7 +39,7 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between items-center px-6 py-4 shadow-md bg-white relative">
       <Link to="/" className="text-2xl font-bold text-blue-600">
-        MindScanAI
+        NeuroCareAI
       </Link>
       <div className="flex gap-4 items-center">
         {user ? (
