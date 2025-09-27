@@ -1,71 +1,74 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-// Comprehensive Knowledge Base
+// Import your logo
+
+
+// Fixed Knowledge Base - PROPER ANSWERS, NO WRONG REDIRECTS
 const neuroCareKnowledge = {
-  // ==================== RISK-RELATED RESPONSES (PROPER ANSWERS) ====================
+  // ==================== PROPER RISK RESPONSES ====================
   "low risk": {
-    response: `✅ **Low Risk Results - Understanding Your Status**\n\n**What This Means:**\n• No significant current indicators of dementia\n• Lower probability of developing cognitive issues\n• Good cognitive health markers present\n\n**Recommended Actions:**\n• Continue brain-healthy lifestyle habits\n• Annual cognitive check-ups\n• Maintain mental and physical activities\n• Regular monitoring for any changes\n\n**Remember:** Low risk doesn't mean zero risk. Regular monitoring is still important.`,
-    options: ["Learn Prevention", "Brain Exercises", "Take Assessment", "Main Menu"]
+    response: `✅ **Low Risk Results**\n\n**What This Means:**\n• No significant dementia indicators detected\n• Good cognitive health markers present\n• Lower probability of developing dementia\n\n**Recommended Actions:**\n• Continue brain-healthy lifestyle\n• Annual cognitive check-ups\n• Maintain mental activities\n• Regular monitoring\n\n**Remember:** Prevention is always better than cure.`,
+    options: ["Prevention Tips", "Brain Exercises", "Learn More", "Main Menu"]
   },
   
   "medium risk": {
-    response: `⚠️ **Medium Risk - Proactive Steps Needed**\n\n**What This Means:**\n• Some indicators present that need attention\n• Higher than average risk factors detected\n• Proactive management recommended\n\n**Immediate Actions:**\n1. Consult healthcare professional\n2. Comprehensive medical evaluation\n3. Lifestyle modifications\n4. Regular monitoring program\n\n**Key Focus Areas:**\n• Enhanced brain exercises\n• Diet improvements\n• Stress management\n• Medical follow-ups`,
-    options: ["Find Doctor", "Lifestyle Plan", "Take Assessment", "Support Resources"]
+    response: `⚠️ **Medium Risk Detected**\n\n**What This Means:**\n• Some risk factors present\n• Proactive management recommended\n• Professional consultation advised\n\n**Immediate Steps:**\n1. Consult healthcare professional\n2. Lifestyle modifications\n3. Regular monitoring\n4. Brain-healthy habits\n\n**Key Focus:** Enhanced prevention strategies.`,
+    options: ["Find Doctor", "Lifestyle Plan", "Support Resources", "Main Menu"]
   },
   
   "high risk": {
-    response: `🚨 **High Risk - Important Next Steps**\n\n**What This Means:**\n• Significant indicators detected\n• Professional medical evaluation strongly recommended\n• Immediate attention needed\n\n**Critical Actions:**\n1. **Schedule doctor appointment immediately**\n2. Comprehensive neurological evaluation\n3. Discuss family history with specialist\n4. Develop intervention plan\n\n**Don't Panic:** Early detection and intervention can significantly improve outcomes.`,
-    options: ["Find Specialist Now", "Emergency Contacts", "Take Assessment", "Support Groups"]
+    response: `🚨 **High Risk Identified**\n\n**What This Means:**\n• Significant indicators detected\n• Immediate medical attention recommended\n• Comprehensive evaluation needed\n\n**Critical Actions:**\n1. Schedule doctor appointment\n2. Neurological evaluation\n3. Discuss family history\n4. Develop care plan\n\n**Stay Calm:** Early intervention improves outcomes.`,
+    options: ["Find Specialist", "Emergency Help", "Support Groups", "Main Menu"]
   },
 
-  // ==================== ASSESSMENT REDIRECT (ONLY WHEN SPECIFICALLY ASKED) ====================
-  "take assessment": {
-    response: `🤖 **Dementia Risk Assessment**\n\nOur AI-powered assessment evaluates:\n• Memory function\n• Cognitive abilities\n• Risk factors\n• Lifestyle factors\n\n**Takes 15-20 minutes with instant results.**\n\nRedirecting you to the assessment page...`,
-    redirect: "/assessment"
-  },
-  
-  "start test": {
-    response: `🔗 **Taking you to the assessment...**\n\nYou'll complete cognitive tasks and receive immediate AI-powered results.`,
-    redirect: "/assessment"
-  },
-
-  // ==================== DOCTOR REDIRECT (ONLY WHEN SPECIFICALLY ASKED) ====================
-  "doctor appointment": {
-    response: `👨‍⚕️ **Doctor Consultation**\n\nRedirecting you to our specialist directory where you can:\n• Find dementia specialists\n• Book appointments\n• Read doctor reviews\n• Check availability`,
-    redirect: "/servicedoctor"
-  },
-
-  // ==================== GENERAL DEMENTIA KNOWLEDGE ====================
+  // ==================== DEMENTIA QUESTIONS ====================
   "what is dementia": {
-    response: `🧠 **What is Dementia?**\n\nDementia describes symptoms affecting:\n• **Memory** - Recall and retention\n• **Thinking** - Reasoning and judgment\n• **Social Abilities** - Communication skills\n• **Daily Activities** - Routine tasks\n\n**Common Types**: Alzheimer's (60-80%), Vascular, Lewy Body`,
-    options: ["Early Signs", "Types of Dementia", "Risk Factors", "Take Assessment"]
+    response: `🧠 **What is Dementia?**\n\nDementia is a term for symptoms affecting:\n• Memory\n• Thinking skills\n• Social abilities\n• Daily activities\n\n**Common Types:** Alzheimer's, Vascular, Lewy Body\n**Important:** Early detection improves quality of life.`,
+    options: ["Symptoms", "Risk Factors", "Prevention", "Main Menu"]
   },
   
   "dementia symptoms": {
-    response: `🔍 **Dementia Symptoms**\n\n**Early Signs:**\n• Memory loss affecting daily life\n• Difficulty planning/problem-solving\n• Confusion with time/place\n• Vision/spatial issues\n• New language problems\n\n**When to Seek Help:**\nIf these symptoms persist and affect daily activities.`,
-    options: ["Risk Assessment", "When to See Doctor", "Prevention Tips", "Main Menu"]
+    response: `🔍 **Dementia Symptoms**\n\n**Early Signs:**\n• Memory loss affecting daily life\n• Difficulty with planning\n• Confusion with time/place\n• Vision problems\n• Misplacing things\n\n**Later Symptoms:**\n• Personality changes\n• Communication difficulties\n• Need for assistance`,
+    options: ["Risk Assessment", "When to See Doctor", "Support", "Main Menu"]
+  },
+  
+  "stages of dementia": {
+    response: `📊 **Dementia Stages**\n\n**Early Stage:** Mild symptoms, independent\n**Middle Stage:** More obvious symptoms, some help needed\n**Late Stage:** Severe symptoms, full-time care\n\nEarly detection allows better management.`,
+    options: ["Early Detection", "Treatment Options", "Caregiver Help", "Main Menu"]
   },
 
-  // ==================== PREVENTION & LIFESTYLE ====================
-  "reduce dementia risk": {
-    response: `🛡️ **Dementia Prevention Strategies**\n\n**Proven Methods:**\n• **Exercise**: 150 mins/week aerobic activity\n• **Diet**: Mediterranean style with brain-healthy foods\n• **Sleep**: 7-8 hours quality sleep nightly\n• **Mental Stimulation**: Learn new skills regularly\n• **Social Engagement**: Maintain strong connections\n\n**Risk Reduction**: Up to 40% possible with lifestyle changes`,
-    options: ["Exercise Plan", "Diet Guide", "Brain Games", "Take Assessment"]
+  // ==================== PREVENTION ====================
+  "prevent dementia": {
+    response: `🛡️ **Dementia Prevention**\n\n**Proven Strategies:**\n• Regular physical exercise\n• Healthy diet (Mediterranean)\n• Mental stimulation\n• Social engagement\n• Quality sleep\n• Stress management\n\nUp to 40% risk reduction possible.`,
+    options: ["Exercise Plan", "Diet Guide", "Brain Games", "Main Menu"]
   },
   
   "brain exercises": {
-    response: `🏋️ **Brain Training Exercises**\n\n**Daily Mental Workouts:**\n• Puzzles (crosswords, Sudoku)\n• Memory games and challenges\n• Learning new languages/skills\n• Musical instrument practice\n• Reading complex material\n• Strategy games (chess, cards)\n\n**Recommendation**: 30 minutes daily of varied activities`,
+    response: `🏋️ **Brain Exercises**\n\n**Daily Activities:**\n• Puzzles and memory games\n• Learning new skills\n• Reading challenging material\n• Musical instruments\n• Strategy games\n\n**Recommendation:** 30 minutes daily.`,
     options: ["Start Exercises", "Memory Games", "Cognitive Training", "Main Menu"]
   },
 
-  // ==================== CHIT-CHAT & DEFAULT ====================
+  // ==================== ASSESSMENT (ONLY WHEN SPECIFICALLY ASKED) ====================
+  "take assessment": {
+    response: `🤖 **AI Dementia Assessment**\n\nOur assessment evaluates:\n• Memory function\n• Cognitive abilities\n• Risk factors\n\n**Takes 15-20 minutes with instant results.**\n\nRedirecting to assessment page...`,
+    redirect: "/assessment"
+  },
+
+  // ==================== DOCTOR (ONLY WHEN SPECIFICALLY ASKED) ====================
+  "find doctor": {
+    response: `👨‍⚕️ **Doctor Consultation**\n\nFinding the right specialist for:\n• Comprehensive evaluation\n• Personalized treatment\n• Ongoing care\n\nRedirecting to doctor directory...`,
+    redirect: "/services/doctors"
+  },
+
+  // ==================== GENERAL CHAT ====================
   "hi": {
-    response: `👋 Hello! I'm NeuroCare AI, specializing in early dementia detection and brain health. How can I assist you today?`,
-    options: ["Take Assessment", "Learn About Dementia", "Find Doctors", "Ask Question"]
+    response: `👋 **Welcome to NeuroCare AI!**\n\nI specialize in early dementia detection and brain health. How can I help you today?`,
+    options: ["Take Assessment", "Learn About Dementia", "Find Doctor", "Ask Question"]
   },
   
   "default": {
-    response: `🧠 **NeuroCare AI Assistant**\n\nI specialize in early dementia detection and brain health. I can help you with:\n\n• Risk assessment and analysis\n• Dementia signs and symptoms\n• Prevention strategies\n• Doctor consultations\n\nHow can I assist you today?`,
+    response: `🧠 **NeuroCare AI Assistant**\n\nI can help you with:\n• Dementia risk assessment\n• Symptoms information\n• Prevention strategies\n• Doctor consultations\n\nWhat would you like to know?`,
     options: ["Take Assessment", "Learn Basics", "Find Help", "Ask Question"]
   }
 };
@@ -75,7 +78,7 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
   const [userInput, setUserInput] = useState("");
-  const [optionsCollapsed, setOptionsCollapsed] = useState(false);
+  const [optionsCollapsed, setOptionsCollapsed] = useState(true); // Start collapsed
   const chatEndRef = useRef(null);
   const chatContainerRef = useRef(null);
   const navigate = useNavigate();
@@ -112,43 +115,45 @@ const Chatbot = () => {
 
   const initializeChat = () => {
     setMessages([{ 
-      text: `🧠 **Welcome to NeuroCare AI Assistant**\n\nI specialize in early dementia detection and brain health. How can I help you today?`,
+      text: `👋 **Welcome to NeuroCare AI!**\n\nI specialize in early dementia detection and brain health. How can I help you today?`,
       sender: "bot", 
-      options: ["Take Assessment", "Learn About Dementia", "Find Doctors", "Ask Question"],
+      options: ["Take Assessment", "Learn About Dementia", "Find Doctor", "Ask Question"],
       timestamp: new Date()
     }]);
     setUserInput("");
-    setOptionsCollapsed(false);
+    setOptionsCollapsed(true); // Options start collapsed
   };
 
-  // Smart response finder - PRIORITIZES PROPER ANSWERS OVER REDIRECTS
+  // SMART RESPONSE FINDER - FIXED TO GIVE PROPER ANSWERS
   const findResponse = (userMessage) => {
     const message = userMessage.toLowerCase().trim();
     
-    // First check for risk-related queries (give proper answers)
+    console.log("User message:", message); // Debug log
+    
+    // First: Check for exact matches with proper answers
     if (message.includes("low risk")) return neuroCareKnowledge["low risk"];
     if (message.includes("medium risk")) return neuroCareKnowledge["medium risk"];
     if (message.includes("high risk")) return neuroCareKnowledge["high risk"];
+    if (message.includes("what is dementia")) return neuroCareKnowledge["what is dementia"];
+    if (message.includes("symptoms") || message.includes("signs")) return neuroCareKnowledge["dementia symptoms"];
+    if (message.includes("stage")) return neuroCareKnowledge["stages of dementia"];
+    if (message.includes("prevent")) return neuroCareKnowledge["prevent dementia"];
+    if (message.includes("exercise") || message.includes("brain game")) return neuroCareKnowledge["brain exercises"];
     
-    // Then check for specific assessment requests (only then redirect)
-    if (message.includes("take assessment") || message.includes("start test") || 
-        message.includes("begin test")) {
+    // Second: Only redirect for SPECIFIC requests
+    if (message.includes("take assessment") || message.includes("start test")) {
       return neuroCareKnowledge["take assessment"];
     }
-    
-    // Then check for specific doctor requests
-    if (message.includes("doctor appointment") || message.includes("book doctor") ||
-        message.includes("find doctor")) {
-      return neuroCareKnowledge["doctor appointment"];
+    if (message.includes("find doctor") || message.includes("book appointment")) {
+      return neuroCareKnowledge["find doctor"];
     }
     
-    // Then check other knowledge base entries
-    for (const [key, data] of Object.entries(neuroCareKnowledge)) {
-      if (message.includes(key)) {
-        return data;
-      }
+    // Third: General matches
+    if (message.includes("hi") || message.includes("hello") || message.includes("hey")) {
+      return neuroCareKnowledge["hi"];
     }
     
+    // Default: Never redirect automatically
     return neuroCareKnowledge["default"];
   };
 
@@ -168,9 +173,14 @@ const Chatbot = () => {
     await simulateTyping(() => {
       const response = findResponse(userMessage);
       
-      // Handle redirects ONLY for specific requests
-      if (response.redirect && (userMessage.includes("take assessment") || 
-          userMessage.includes("doctor appointment") || userMessage.includes("start test"))) {
+      console.log("Selected response:", response); // Debug log
+      
+      // Handle redirects ONLY for very specific cases
+      if (response.redirect && (
+          userMessage.toLowerCase().includes("take assessment") ||
+          userMessage.toLowerCase().includes("find doctor") ||
+          userMessage.toLowerCase().includes("book appointment")
+      )) {
         setMessages(prev => [...prev, { 
           text: response.response, 
           sender: "bot",
@@ -187,7 +197,7 @@ const Chatbot = () => {
         timestamp: new Date(),
         options: response.options
       }]);
-      setOptionsCollapsed(false);
+      setOptionsCollapsed(true); // Keep options collapsed after new message
     });
   };
 
@@ -213,6 +223,16 @@ const Chatbot = () => {
         return;
       }
       
+      if (response.redirect && optionText.includes("Doctor")) {
+        setMessages(prev => [...prev, { 
+          text: response.response, 
+          sender: "bot",
+          timestamp: new Date()
+        }]);
+        setTimeout(() => navigate(response.redirect), 1500);
+        return;
+      }
+      
       // Normal response
       setMessages(prev => [...prev, { 
         text: response.response, 
@@ -220,7 +240,7 @@ const Chatbot = () => {
         timestamp: new Date(),
         options: response.options
       }]);
-      setOptionsCollapsed(false);
+      setOptionsCollapsed(true); // Keep options collapsed
     });
   };
 
@@ -242,14 +262,22 @@ const Chatbot = () => {
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      {/* Chat Toggle Button */}
+      {/* Chat Toggle Button - NOW CIRCLE */}
       {!isOpen && (
         <button
           onClick={handleOpen}
-          className="group relative bg-gradient-to-br from-blue-600 to-purple-700 text-white rounded-2xl w-16 h-16 shadow-2xl hover:shadow-3xl hover:scale-110 transition-all duration-300 flex items-center justify-center"
+          className="group relative bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-full w-16 h-16 shadow-2xl hover:shadow-3xl hover:scale-110 transition-all duration-300 flex items-center justify-center"
           aria-label="Open NeuroCare AI Assistant"
         >
-          <span className="text-2xl">🧠</span>
+          {/* Your Logo - Replace with your image path */}
+          <img 
+            src="/assets/logo/logo.png" alt="NeuroCare" className="w-10 h-10 rounded-full object-cover"
+            onError={(e) => {
+              e.target.style.display = 'none';
+              e.target.nextSibling.style.display = 'block';
+            }}
+          />
+          <span className="text-2xl hidden">💬</span>
           <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
         </button>
       )}
@@ -260,13 +288,24 @@ const Chatbot = () => {
           ref={chatContainerRef}
           className="w-96 h-[600px] bg-gradient-to-br from-gray-50 to-blue-50/30 shadow-2xl rounded-2xl flex flex-col overflow-hidden border border-white/20 backdrop-blur-sm"
         >
-          {/* Header */}
-          <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 text-white p-4">
+          {/* Header - SKY BLUE BACKGROUND */}
+          <div className="bg-gradient-to-r from-sky-600 to-sky-600 text-white p-4">
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
-                  <span className="text-lg">🤖</span>
+                {/* Your Logo in Header */}
+                <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center bg-white/20">
+                    <img 
+                         src="/assets/logo/logo.png" 
+                         alt="NeuroCare" 
+                         className="w-full h-full object-cover"
+                         onError={(e) => {
+                            e.target.style.display = 'none';
+                            e.target.nextSibling.style.display = 'block';
+                        }}
+                    />
+                    <span className="text-lg hidden">🧠</span>
                 </div>
+
                 <div>
                   <h3 className="font-bold text-lg">NeuroCare AI</h3>
                   <p className="text-blue-100 text-sm">Early Dementia Detection</p>
@@ -281,7 +320,7 @@ const Chatbot = () => {
                 </button>
                 <button
                   onClick={handleClose}
-                  className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all"
+                  className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all"
                 >
                   ×
                 </button>
@@ -289,15 +328,24 @@ const Chatbot = () => {
             </div>
           </div>
 
-          {/* Messages Container */}
-          <div className="flex-1 p-4 overflow-y-auto space-y-4">
+          {/* Messages Container - TRANSPARENT */}
+          <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-transparent">
             {messages.map((message, index) => (
               <div key={index} className={`flex gap-3 ${message.sender === "bot" ? '' : 'flex-row-reverse'}`}>
                 {message.sender === "bot" && (
-                  <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
-                    NC
-                  </div>
-                )}
+                  <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center bg-white/20">
+                        <img 
+                            src="/assets/logo/logo.png" 
+                            alt="NeuroCare" 
+                            className="w-8 h-8 object-cover"
+                             onError={(e) => {
+                                e.target.style.display = 'none';
+                                e.target.nextSibling.style.display = 'block';
+                            }}
+                         />
+                        <span className="hidden">NC</span>
+                    </div>
+)}
                 
                 <div className={`flex flex-col max-w-[85%] ${message.sender === "bot" ? 'items-start' : 'items-end'}`}>
                   <div className={`flex items-center gap-2 mb-1 ${message.sender === "bot" ? '' : 'flex-row-reverse'}`}>
@@ -311,7 +359,7 @@ const Chatbot = () => {
                   
                   <div className={`p-4 rounded-2xl max-w-full ${
                     message.sender === "bot" 
-                      ? "bg-white text-gray-800 rounded-tl-none border border-gray-100" 
+                      ? "bg-white/90 text-gray-800 rounded-tl-none border border-gray-100" 
                       : "bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-tr-none"
                   }`}>
                     <div className="whitespace-pre-line text-sm">
@@ -331,10 +379,17 @@ const Chatbot = () => {
             
             {isTyping && (
               <div className="flex gap-3">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
-                  NC
+                <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center bg-white/20">
+                  <img 
+                    src="/assets/logo/logo.png" alt="NC" className="w-6 h-6 object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'block';
+                    }}
+                  />
+                  <span className="hidden">NC</span>
                 </div>
-                <div className="flex items-center space-x-1 bg-white rounded-2xl rounded-tl-none p-4 border border-gray-100">
+                <div className="flex items-center space-x-1 bg-white/90 rounded-2xl rounded-tl-none p-4 border border-gray-100">
                   <div className="flex space-x-1">
                     <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
                     <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
@@ -346,14 +401,16 @@ const Chatbot = () => {
             <div ref={chatEndRef} />
           </div>
 
-          {/* Options Container */}
+          {/* Options Container - COLLAPSIBLE BY DEFAULT */}
           {messages[messages.length - 1]?.options && (
             <div className="border-t border-white/20 bg-white/50">
               <button
                 onClick={toggleOptionsCollapse}
                 className="w-full py-3 flex items-center justify-center gap-2 text-gray-700 hover:text-gray-900 transition-colors bg-white/80"
               >
-                <span className="text-sm font-medium">Quick Options</span>
+                <span className="text-sm font-medium">
+                  {optionsCollapsed ? 'Show Options' : 'Hide Options'}
+                </span>
                 <svg 
                   className={`w-4 h-4 transition-transform duration-300 ${optionsCollapsed ? 'rotate-0' : 'rotate-180'}`}
                   fill="none" 
@@ -392,7 +449,7 @@ const Chatbot = () => {
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Type your question about dementia..."
+                placeholder="Ask about dementia, symptoms, prevention..."
                 className="flex-1 px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-sm"
                 disabled={isTyping}
               />

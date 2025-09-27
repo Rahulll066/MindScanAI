@@ -18,7 +18,7 @@ import MemoryMatchGame from "./pages/tests/MemoryMatchGame";
 import Results from "./pages/Results";
 import Profile from "./pages/Profile";
 import './variables.css';
-import Chatbot from './components/Chatbot'; // Add this import
+import Chatbot from './components/Chatbot'; 
 
 function App() {
   return (
@@ -42,7 +42,7 @@ function App() {
         <Route path="/assessment/results" element={<Results />} />
       </Routes>
       <Footer />
-      <Chatbot /> ✅ **ADD THIS LINE**
+      <Chatbot /> 
     </BrowserRouter>
   );
 }

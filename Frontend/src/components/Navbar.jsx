@@ -45,19 +45,19 @@ const Navbar = () => {
         <div className="flex-shrink-0 h-full flex items-center">
           <Link
             to="/"
-            className="flex items-center gap-2 text-2xl font-bold text-primary-600"
+            className="flex items-center text-2xl font-bold text-primary-600"
           >
             <img
               src="/assets/logo/logo.png"
               alt="NeuroCare Logo"
-              className="h-16 w-auto object-contain"
+              className="h-16 w-auto object-contain -mr-1"
             />
-            NeuroCare
+            <span className="-ml-1">NeuroCare</span>
           </Link>
         </div>
 
         {/* Center: Nav Links */}
-        <div className="flex-1 flex justify-center gap-8 text-gray-700 font-medium hidden md:flex">
+        <div className="hidden md:flex flex-1 justify-center gap-8 text-gray-700 font-medium">
           <Link to="/" className="hover:text-primary-600 transition">
             Home
           </Link>
@@ -126,7 +126,7 @@ const Navbar = () => {
         </div>
 
         {/* Right: Helpline + User Buttons */}
-        <div className="flex-shrink-0 flex items-center gap-4 hidden md:flex">
+        <div className="hidden md:flex flex-shrink-0 items-center gap-4">
           {/* Dementia Helpline */}
           <div className="flex items-center gap-2 bg-primary-50 p-2 rounded-lg">
             <PhoneCall className="text-primary-600 w-6 h-6" />
@@ -172,7 +172,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Hamburger */}
-        <div className="md:hidden flex items-center">
+        <div className="flex md:hidden items-center">
           <button onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -288,9 +288,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-
-
-
