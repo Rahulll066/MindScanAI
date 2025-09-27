@@ -23,13 +23,16 @@ const Home = () => {
           Your browser does not support the video tag.
         </video>
 
+        {/* Dark overlay */}
+        <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-5"></div>
+
         {/* Overlay content */}
-        <div className="relative z-10 px-4">
+        <div className="relative z-10 px-4 text-white">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Early Dementia Detection with{" "}
             <span className="text-blue-600">AI</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto mb-8">
+          <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8">
             A simple platform for early detection of dementia using cognitive
             tests and AI-powered analysis.
           </p>

@@ -5,7 +5,8 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import About from "./pages/About";
+import AboutMission from "./pages/AboutMission";
+import AboutDementia from "./pages/AboutDementia";
 import Assessment from "./pages/Assessment";
 import VeryEasyClock from "./pages/tests/VeryEasyClock";
 import EasyWordRemembering from "./pages/tests/EasyWordRemembering";
@@ -25,7 +26,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about/mission" element={<AboutMission />} />
+        <Route path="/about/dementia" element={<AboutDementia />} />
         <Route path="/assessment" element={<Assessment />} />
         <Route path="/assessment/very-easy-clock" element={<VeryEasyClock />} />
         <Route path="/assessment/easy-word" element={<EasyWordRemembering />} />

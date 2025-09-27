@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import { Brain, HeartPulse, Shield, Users, Activity, Share2, Globe } from "lucide-react";
 
-const About = () => {
+const AboutMission = () => {
   return (
     <div className="bg-gray-50 text-gray-800">
       {/* Hero Section */}
@@ -134,4 +134,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutMission;
