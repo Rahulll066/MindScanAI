@@ -5,25 +5,37 @@ const doctors = [
     name: "Dr. Rahul",
     field: "Neurologist",
     expertise: "Memory disorders, Alzheimer’s disease",
-    image: "/assets/doctors/doc1.jpg",
+    image: "/assets/profiles/dementia4.jpg",
   },
   {
     name: "Dr. Sai",
     field: "Geriatric Psychiatrist",
     expertise: "Behavioral issues, cognitive therapy",
-    image: "/assets/doctors/doc2.jpg",
+    image: "/assets/profiles/dementia4.jpg",
   },
   {
     name: "Dr. Krishna",
     field: "Neuropsychologist",
     expertise: "Cognitive assessment, dementia evaluation",
-    image: "/assets/doctors/doc3.jpg",
+    image: "/assets/profiles/dementia4.jpg",
   },
   {
     name: "Dr. Brijesh",
     field: "General Neurologist",
     expertise: "Stroke, vascular dementia",
-    image: "/assets/doctors/doc4.jpg",
+    image: "/assets/profiles/dementia4.jpg",
+  },
+  {
+    name: "Dr. Shravya",
+    field: "Mental Therapist",
+    expertise: "Daily living support, memory exercises",
+    image: "/assets/profiles/girldoctor.jpg",
+  },
+  {
+    name: "Dr. Amrutha",
+    field: "Speech & Language Therapist",
+    expertise: "Communication difficulties, cognitive therapy",
+    image: "/assets/profiles/girldoctor.jpg",
   },
 ];
 

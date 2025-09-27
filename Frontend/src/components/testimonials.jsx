@@ -5,32 +5,32 @@ const testimonials = [
   {
     quote:
       "NeuroCareAI's technology has revolutionized how we approach early dementia detection. The accuracy and early detection capabilities are unprecedented.",
-    initials: "DSC",
-    name: "Dr. Sarah Chen",
-    role: "Neurologist, Stanford Medical Center",
+    name: "Dr. Sudheer",
+    role: "Neurologist",
     rating: 5,
+    image: "/assets/profiles/dementia4.jpg",
   },
   {
     quote:
       "Thanks to NeuroCareAI, we caught early signs that my doctor missed. Now I'm getting the care I need and my family has peace of mind.",
-    initials: "MW",
-    name: "Margaret Williams",
-    role: "Patient, Age 72",
+    name: "Ramya",
+    role: "Patient",
     rating: 5,
+    image: "/assets/profiles/dementia5.jpg",
   },
   {
     quote:
       "The clinical validation and accuracy of NeuroCareAI's AI model is remarkable. It's become an essential tool in our diagnostic process.",
-    initials: "DMR",
-    name: "Dr. Michael Rodriguez",
-    role: "Chief of Neurology, Mayo Clinic",
+    name: "Dr. Ramayya",
+    role: "Chief of Neurology, Ramayya Clinic",
     rating: 5,
+    image: "/assets/profiles/dementia4.jpg",
   },
 ];
 
 const Testimonials = () => {
   return (
-  <section className="py-20 bg-primary-50 text-center">
+    <section className="py-20 bg-primary-50 text-center">
       <h2 className="text-4xl font-bold mb-12">What People Say</h2>
       <div className="max-w-6xl mx-auto grid gap-8 md:grid-cols-3 px-4">
         {testimonials.map((tItem, idx) => (
@@ -38,10 +38,17 @@ const Testimonials = () => {
             key={idx}
             className="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center"
           >
-            <div className="w-16 h-16 rounded-full bg-primary-600 text-white flex items-center justify-center text-xl font-bold mb-4">
-              {tItem.initials}
-            </div>
+            {/* Profile Image */}
+            <img
+              src={tItem.image}
+              alt={tItem.name}
+              className="w-16 h-16 rounded-full object-cover shadow-md mb-4"
+            />
+
+            {/* Quote */}
             <p className="text-gray-700 mb-4 text-sm">{tItem.quote}</p>
+
+            {/* Rating */}
             <div className="flex gap-1 mb-2">
               {Array(tItem.rating)
                 .fill(0)
@@ -53,6 +60,8 @@ const Testimonials = () => {
                   />
                 ))}
             </div>
+
+            {/* Name & Role */}
             <h4 className="font-semibold">{tItem.name}</h4>
             <p className="text-gray-500 text-sm">{tItem.role}</p>
           </div>
@@ -72,3 +81,4 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+

@@ -19,7 +19,7 @@ const Home = () => {
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover opacity-70 z-0"
         >
-          <source src="/assets/brain.mp4" type="video/mp4" />
+          <source src="/assets/animations/brain.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
@@ -40,7 +40,7 @@ const Home = () => {
             <Link to="/assessment">
               <Button>Start Assessment</Button>
             </Link>
-            <Link to="/about">
+            <Link to="/about/mission">
               <Button variant="outline">Learn More</Button>
             </Link>
           </div>
