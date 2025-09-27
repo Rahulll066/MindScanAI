@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-blue-100 to-blue-50 mt-12 text-gray-800">
+  <footer className="bg-gradient-to-r from-primary-100 to-primary-50 mt-12 text-gray-800">
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* About Section */}
         <div className="space-y-3">
-          <h3 className="text-lg font-semibold text-blue-900">About NeuroCareAI</h3>
+          <h3 className="text-lg font-semibold text-primary-900">About NeuroCareAI</h3>
           <p className="text-gray-700 text-sm">
             NeuroCareAI uses advanced AI to help detect early signs of dementia through simple at-home cognitive assessments.
           </p>
@@ -15,35 +15,35 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div className="space-y-3">
-          <h3 className="text-lg font-semibold text-blue-900">Quick Links</h3>
+          <h3 className="text-lg font-semibold text-primary-900">Quick Links</h3>
           <ul className="space-y-2 text-gray-700 text-sm">
             <li>
-              <Link to="/about" className="hover:text-blue-600">About</Link>
+              <Link to="/about" className="hover:text-primary-600">About</Link>
             </li>
             <li>
-              <Link to="/assessment" className="hover:text-blue-600">Assessment</Link>
+              <Link to="/assessment" className="hover:text-primary-600">Assessment</Link>
             </li>
             <li>
-              <Link to="/profile" className="hover:text-blue-600">Profile</Link>
+              <Link to="/profile" className="hover:text-primary-600">Profile</Link>
             </li>
             <li>
-              <Link to="/contact" className="hover:text-blue-600">Contact</Link>
+              <Link to="/contact" className="hover:text-primary-600">Contact</Link>
             </li>
           </ul>
         </div>
 
         {/* Contact / CTA */}
         <div className="space-y-3">
-          <h3 className="text-lg font-semibold text-blue-900">Contact Us</h3>
+          <h3 className="text-lg font-semibold text-primary-900">Contact Us</h3>
           <p className="text-gray-700 text-sm">
             Call Us:{" "}
-            <a href="tel:+1234567890" className="text-blue-600 hover:underline">
+            <a href="tel:+1234567890" className="text-primary-600 hover:underline">
               +1 234 567 890
             </a>
           </p>
           <p className="text-gray-700 text-sm">
             Email:{" "}
-            <a href="mailto:info@neurocareai.com" className="text-blue-600 hover:underline">
+            <a href="mailto:info@neurocareai.com" className="text-primary-600 hover:underline">
               info@neurocareai.com
             </a>
           </p>
@@ -51,7 +51,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom copyright */}
-      <div className="text-center py-4 border-t border-blue-200 text-blue-900 text-sm">
+  <div className="text-center py-4 border-t border-primary-200 text-primary-900 text-sm">
         © {new Date().getFullYear()} NeuroCareAI. All rights reserved.
       </div>
     </footer>

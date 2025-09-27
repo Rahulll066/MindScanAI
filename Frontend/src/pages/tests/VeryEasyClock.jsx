@@ -149,7 +149,7 @@ const VeryEasyClock = () => {
 
       <button
         onClick={handleSubmit}
-        className="mt-6 bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700"
+  className="mt-6 bg-primary-600 text-white py-2 px-6 rounded-lg hover:bg-primary-700"
       >
         Submit & Continue
       </button>

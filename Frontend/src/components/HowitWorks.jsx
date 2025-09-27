@@ -56,12 +56,12 @@ const HowItWorks = () => {
 
       <div className="max-w-6xl mx-auto px-4 relative flex flex-col md:flex-row justify-center md:justify-between items-center">
         {/* Static horizontal line (desktop only) */}
-        <div className="absolute top-16 left-6 right-6 h-1 bg-blue-100 hidden md:block z-0"></div>
+  <div className="absolute top-16 left-6 right-6 h-1 bg-primary-100 hidden md:block z-0"></div>
 
         {/* Animated fill line (desktop only) */}
         <div
           ref={lineRef}
-          className="absolute top-16 left-6 h-1 bg-blue-600 hidden md:block z-10 transition-all"
+          className="absolute top-16 left-6 h-1 bg-primary-600 hidden md:block z-10 transition-all"
           style={{ width: `${fillWidth}%`, transition: "width 2.5s ease-in-out" }}
         ></div>
 
@@ -71,12 +71,12 @@ const HowItWorks = () => {
             className="flex flex-col items-center text-center relative z-20 mb-12 md:mb-0 md:flex-1"
           >
             {/* Step circle */}
-            <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold mb-4">
+            <div className="w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center font-bold mb-4">
               {idx + 1}
             </div>
 
             {/* Icon */}
-            <step.icon className="w-10 h-10 text-blue-600 mb-2" />
+            <step.icon className="w-10 h-10 text-primary-600 mb-2" />
 
             {/* Text */}
             <h3 className="text-xl font-semibold mb-1">{step.title}</h3>

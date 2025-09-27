@@ -38,7 +38,7 @@ export default function WhyChoose() {
     <section className="py-16 bg-gray-50" id="why-choose">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
         <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-12">
-          Why Choose <span className="text-blue-600">NeurocareAI</span>
+          Why Choose <span className="text-primary-600">NeurocareAI</span>
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -47,7 +47,7 @@ export default function WhyChoose() {
               key={idx}
               className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition"
             >
-              <feature.icon className="w-10 h-10 text-blue-600 mb-4 mx-auto" />
+              <feature.icon className="w-10 h-10 text-primary-600 mb-4 mx-auto" />
               <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
               <p className="text-gray-600 text-sm">{feature.description}</p>
             </div>

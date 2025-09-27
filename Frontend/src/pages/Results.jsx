@@ -152,7 +152,7 @@ const Results = () => {
 
       <motion.button
         onClick={handleRestart}
-        className="mt-8 bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700"
+  className="mt-8 bg-primary-600 text-white py-2 px-6 rounded-lg hover:bg-primary-700"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >

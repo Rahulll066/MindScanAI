@@ -40,18 +40,18 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white shadow-md relative z-50">
-      <div className="w-full px-6 py-4 flex items-center justify-between">
-
+      <div className="w-full px-6 flex items-center justify-between h-16">
         {/* Left: Logo */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 h-full flex items-center">
           <Link
             to="/"
-            className="flex items-center gap-2 text-2xl font-bold text-blue-600"
+            className="flex items-center gap-2 text-2xl font-bold text-primary-600"
           >
             <img
-              src="/assets/logo.jpg"
+              src="/assets/logo.png"
               alt="NeuroCare Logo"
-              className="w-12 h-12 object-contain"
+              className="h-16 w-auto object-contain"
+              style={{ width: "auto" }}
             />
             NeuroCare
           </Link>
@@ -59,16 +59,16 @@ const Navbar = () => {
 
         {/* Center: Nav Links */}
         <div className="flex-1 flex justify-center gap-8 text-gray-700 font-medium hidden md:flex">
-          <Link to="/" className="hover:text-blue-600 transition">Home</Link>
+          <Link to="/" className="hover:text-primary-600 transition">Home</Link>
 
           {/* About Dropdown */}
           <div className="relative">
             <button
               onClick={() => {
                 setAboutOpen(!aboutOpen);
-                setServicesOpen(false); // close Services when About opens
+                setServicesOpen(false);
               }}
-              className="flex items-center gap-1 hover:text-blue-600 transition"
+              className="flex items-center gap-1 hover:text-primary-600 transition"
             >
               About <ChevronDown size={16} />
             </button>
@@ -97,9 +97,9 @@ const Navbar = () => {
             <button
               onClick={() => {
                 setServicesOpen(!servicesOpen);
-                setAboutOpen(false); // close About when Services opens
+                setAboutOpen(false);
               }}
-              className="flex items-center gap-1 hover:text-blue-600 transition"
+              className="flex items-center gap-1 hover:text-primary-600 transition"
             >
               Medical Services <ChevronDown size={16} />
             </button>
@@ -185,7 +185,7 @@ const Navbar = () => {
             <button
               onClick={() => {
                 setAboutOpen(!aboutOpen);
-                setServicesOpen(false); // close Services
+                setServicesOpen(false);
               }}
               className="flex justify-between w-full px-2 py-2 hover:bg-gray-100 rounded"
             >
@@ -216,7 +216,7 @@ const Navbar = () => {
             <button
               onClick={() => {
                 setServicesOpen(!servicesOpen);
-                setAboutOpen(false); // close About
+                setAboutOpen(false);
               }}
               className="flex justify-between w-full px-2 py-2 hover:bg-gray-100 rounded"
             >
@@ -278,6 +278,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
 
 

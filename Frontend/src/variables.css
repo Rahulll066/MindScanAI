@@ -1,0 +1,42 @@
+/* ===== Global Color Variables ===== */
+:root {
+  /* Primary Teal-Blue Palette */
+  --primary-color: #00bcff;        /* main teal-blue */
+  --primary-color-light: #80d4ff;  /* lighter variant */
+  --primary-color-dark: #0096cc;   /* darker variant */
+
+  /* Text Colors */
+  --text-color: #004f80;           /* primary text */
+  --text-secondary: #666666;       /* secondary text */
+  --text-white: #ffffff;
+
+  /* Background Colors */
+  --bg-color: #ffffff;             /* page background */
+  --bg-light: #e6f7ff;             /* subtle light bg */
+  --bg-dark: #f0f8ff;              /* slightly darker bg for sections */
+
+  /* Borders */
+  --border-color: #d0e9ff;
+
+  /* Shadows */
+  --shadow-color: rgba(0, 188, 255, 0.2);
+}
+
+/* ===== Utility Classes ===== */
+.bg-primary { background-color: var(--primary-color); }
+.bg-primary-light { background-color: var(--primary-color-light); }
+.bg-primary-dark { background-color: var(--primary-color-dark); }
+.bg-light { background-color: var(--bg-light); }
+.bg-dark { background-color: var(--bg-dark); }
+.bg-page { background-color: var(--bg-color); }
+
+.text-primary { color: var(--primary-color); }
+.text-primary-dark { color: var(--primary-color-dark); }
+.text-text { color: var(--text-color); }
+.text-secondary { color: var(--text-secondary); }
+.text-white { color: var(--text-white); }
+
+.border-primary { border-color: var(--primary-color); }
+.border { border-color: var(--border-color); }
+
+.shadow-primary { box-shadow: 0 4px 10px var(--shadow-color); }

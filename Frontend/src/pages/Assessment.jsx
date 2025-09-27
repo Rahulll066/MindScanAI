@@ -21,7 +21,7 @@ const Assessment = () => {
 
   return (
     <div className="max-w-3xl mx-auto py-20 text-center">
-      <h2 className="text-4xl font-bold mb-6 text-blue-700">
+  <h2 className="text-4xl font-bold mb-6 text-primary-700">
         {t("assessment.title")}
       </h2>
       <p className="text-lg text-gray-600 mb-8">
@@ -30,7 +30,7 @@ const Assessment = () => {
 
       <button
         onClick={handleStart}
-        className="bg-blue-600 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:bg-blue-700 transition"
+  className="bg-primary-600 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:bg-primary-700 transition"
       >
         {t("assessment.button")}
       </button>

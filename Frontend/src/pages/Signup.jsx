@@ -94,7 +94,7 @@ const Signup = () => {
             <p className="mt-4 text-center text-sm text-gray-600">
               {t("signup.already")}{" "}
               <span
-                className="text-blue-600 font-semibold cursor-pointer hover:underline"
+                className="text-primary-600 font-semibold cursor-pointer hover:underline"
                 onClick={() => navigate("/login")}
               >
                 {t("signup.signIn")}

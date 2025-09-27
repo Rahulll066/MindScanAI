@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div className="relative">
       {/* Hero Section */}
-      <section className="relative h-screen bg-blue-50 flex flex-col justify-center items-center text-center overflow-hidden">
+  <section className="relative h-screen bg-primary-50 flex flex-col justify-center items-center text-center overflow-hidden">
         {/* Background Video */}
         <video
           autoPlay
@@ -30,7 +30,7 @@ const Home = () => {
         <div className="relative z-10 px-4 text-white">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Early Dementia Detection with{" "}
-            <span className="text-blue-600">AI</span>
+            <span className="text-primary-600">AI</span>
           </h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8">
             A simple platform for early detection of dementia using cognitive

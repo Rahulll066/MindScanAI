@@ -209,7 +209,7 @@ const Profile = () => {
           </div>
 
           <button
-            className="mt-6 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg transition"
+            className="mt-6 bg-primary-500 hover:bg-primary-600 text-white font-semibold py-2 px-6 rounded-lg transition"
             onClick={() => (isEditing ? handleSave() : setIsEditing(true))}
           >
             {isEditing ? t("profile.saveButton") : t("profile.editButton")}

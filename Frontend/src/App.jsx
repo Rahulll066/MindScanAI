@@ -7,6 +7,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AboutMission from "./pages/AboutMission";
 import AboutDementia from "./pages/AboutDementia";
+import ServicesDoctor from "./pages/ServicesDoctor";
+import ServicesHospital from "./pages/ServicesHospital";
 import Assessment from "./pages/Assessment";
 import VeryEasyClock from "./pages/tests/VeryEasyClock";
 import EasyWordRemembering from "./pages/tests/EasyWordRemembering";
@@ -15,7 +17,7 @@ import HardNumbersConnecting from "./pages/tests/HardNumbersConnecting";
 import MemoryMatchGame from "./pages/tests/MemoryMatchGame";
 import Results from "./pages/Results";
 import Profile from "./pages/Profile";
-
+import './variables.css';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/about/mission" element={<AboutMission />} />
         <Route path="/about/dementia" element={<AboutDementia />} />
+        <Route path="/services/doctors" element={<ServicesDoctor />} />
+        <Route path="/services/hospitals" element={<ServicesHospital />} />
         <Route path="/assessment" element={<Assessment />} />
         <Route path="/assessment/very-easy-clock" element={<VeryEasyClock />} />
         <Route path="/assessment/easy-word" element={<EasyWordRemembering />} />
