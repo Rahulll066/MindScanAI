@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Button from "./Button";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, PhoneCall } from "lucide-react";
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
@@ -48,10 +48,9 @@ const Navbar = () => {
             className="flex items-center gap-2 text-2xl font-bold text-primary-600"
           >
             <img
-              src="/assets/logo.png"
+              src="/assets/logo/logo.png"
               alt="NeuroCare Logo"
               className="h-16 w-auto object-contain"
-              style={{ width: "auto" }}
             />
             NeuroCare
           </Link>
@@ -59,7 +58,9 @@ const Navbar = () => {
 
         {/* Center: Nav Links */}
         <div className="flex-1 flex justify-center gap-8 text-gray-700 font-medium hidden md:flex">
-          <Link to="/" className="hover:text-primary-600 transition">Home</Link>
+          <Link to="/" className="hover:text-primary-600 transition">
+            Home
+          </Link>
 
           {/* About Dropdown */}
           <div className="relative">
@@ -124,8 +125,17 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Right: User Buttons */}
+        {/* Right: Helpline + User Buttons */}
         <div className="flex-shrink-0 flex items-center gap-4 hidden md:flex">
+          {/* Dementia Helpline */}
+          <div className="flex items-center gap-2 bg-primary-50 p-2 rounded-lg">
+            <PhoneCall className="text-primary-600 w-6 h-6" />
+            <div className="text-left">
+              <p className="text-xs text-gray-600">Dementia Helpline</p>
+              <p className="text-sm font-semibold text-gray-800">6377 0700</p>
+            </div>
+          </div>
+
           {user ? (
             <div className="relative">
               <Button variant="outline" onClick={() => setMenuOpen(!menuOpen)}>
@@ -278,6 +288,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
 
 
