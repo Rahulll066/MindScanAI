@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useTranslation } from "react-i18next";
 
 const Profile = () => {
-  const { t } = useTranslation();
-
   const [profile, setProfile] = useState({
     firstName: "",
     lastName: "",
@@ -24,7 +21,7 @@ const Profile = () => {
     const fetchProfile = async () => {
       const token = localStorage.getItem("token");
       if (!token) {
-        setError(t("profile.notLoggedIn"));
+        setError("You are not logged in.");
         setLoading(false);
         return;
       }
@@ -35,13 +32,13 @@ const Profile = () => {
         });
         setProfile(res.data);
       } catch (err) {
-        setError(err.response?.data?.message || t("profile.fetchError"));
+        setError(err.response?.data?.message || "Failed to fetch profile.");
       } finally {
         setLoading(false);
       }
     };
     fetchProfile();
-  }, [t]);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -73,11 +70,11 @@ const Profile = () => {
       setNewAvatar(null);
       setIsEditing(false);
     } catch (err) {
-      setError(err.response?.data?.message || t("profile.updateError"));
+      setError(err.response?.data?.message || "Failed to update profile.");
     }
   };
 
-  if (loading) return <p className="text-center mt-10">{t("profile.loading")}</p>;
+  if (loading) return <p className="text-center mt-10">Loading...</p>;
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
 
   return (
@@ -89,13 +86,13 @@ const Profile = () => {
             {profile.avatar && !newAvatar ? (
               <img
                 src={`http://localhost:5000/${profile.avatar}`}
-                alt={t("profile.avatarAlt")}
+                alt="Profile Avatar"
                 className="w-full h-full object-cover"
               />
             ) : newAvatar ? (
               <img
                 src={URL.createObjectURL(newAvatar)}
-                alt={t("profile.newAvatarAlt")}
+                alt="New Avatar"
                 className="w-full h-full object-cover"
               />
             ) : (
@@ -113,7 +110,7 @@ const Profile = () => {
 
           <div className="w-full space-y-3">
             <div>
-              <span className="font-semibold text-gray-700">{t("profile.age")}: </span>
+              <span className="font-semibold text-gray-700">Age: </span>
               {isEditing ? (
                 <input
                   type="number"
@@ -123,12 +120,12 @@ const Profile = () => {
                   className="border rounded px-2 py-1"
                 />
               ) : (
-                profile.age || t("profile.notAvailable")
+                profile.age || "N/A"
               )}
             </div>
 
             <div>
-              <span className="font-semibold text-gray-700">{t("profile.gender")}: </span>
+              <span className="font-semibold text-gray-700">Gender: </span>
               {isEditing ? (
                 <select
                   name="gender"
@@ -136,18 +133,18 @@ const Profile = () => {
                   onChange={handleChange}
                   className="border rounded px-2 py-1"
                 >
-                  <option value="">{t("profile.select")}</option>
-                  <option value="Male">{t("profile.male")}</option>
-                  <option value="Female">{t("profile.female")}</option>
-                  <option value="Other">{t("profile.other")}</option>
+                  <option value="">Select</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
                 </select>
               ) : (
-                profile.gender || t("profile.notAvailable")
+                profile.gender || "N/A"
               )}
             </div>
 
             <div>
-              <span className="font-semibold text-gray-700">{t("profile.notes")}: </span>
+              <span className="font-semibold text-gray-700">Notes: </span>
               {isEditing ? (
                 <textarea
                   name="notes"
@@ -167,12 +164,12 @@ const Profile = () => {
                   ))}
                 </ul>
               ) : (
-                t("profile.notAvailable")
+                "N/A"
               )}
             </div>
 
             <div>
-              <span className="font-semibold text-gray-700">{t("profile.reminders")}: </span>
+              <span className="font-semibold text-gray-700">Reminders: </span>
               {isEditing ? (
                 <textarea
                   name="reminders"
@@ -192,7 +189,7 @@ const Profile = () => {
                   ))}
                 </ul>
               ) : (
-                t("profile.notAvailable")
+                "N/A"
               )}
             </div>
 
@@ -212,7 +209,7 @@ const Profile = () => {
             className="mt-6 bg-primary-500 hover:bg-primary-600 text-white font-semibold py-2 px-6 rounded-lg transition"
             onClick={() => (isEditing ? handleSave() : setIsEditing(true))}
           >
-            {isEditing ? t("profile.saveButton") : t("profile.editButton")}
+            {isEditing ? "Save" : "Edit"}
           </button>
         </div>
       </div>
@@ -221,6 +218,3 @@ const Profile = () => {
 };
 
 export default Profile;
-
-
-

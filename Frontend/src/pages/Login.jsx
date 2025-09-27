@@ -3,10 +3,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
-import { useTranslation } from "react-i18next";
 
 const Login = () => {
-  const { t } = useTranslation();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
@@ -31,26 +29,26 @@ const Login = () => {
       }, 1000);
     } catch (error) {
       console.error(error);
-      alert(t("login.error")); // use i18n key
+      alert("Login failed. Please check your credentials.");
     }
   };
 
   return (
     <div className="flex items-center justify-center min-h-[80vh]">
       <div className="bg-white p-8 shadow-md rounded-lg w-96">
-        <h2 className="text-2xl font-bold mb-6">{t("login.title")}</h2>
+        <h2 className="text-2xl font-bold mb-6">Login</h2>
 
         {success ? (
           <div className="flex items-center justify-center text-green-600 font-medium space-x-2">
             <span className="text-2xl">✅</span>
-            <span>{t("login.success")}</span>
+            <span>Login successful!</span>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
               type="email"
               name="email"
-              placeholder={t("login.email")}
+              placeholder="Email"
               onChange={handleChange}
               className="w-full border rounded px-3 py-2"
               required
@@ -58,23 +56,23 @@ const Login = () => {
             <input
               type="password"
               name="password"
-              placeholder={t("login.password")}
+              placeholder="Password"
               onChange={handleChange}
               className="w-full border rounded px-3 py-2"
               required
             />
-            <Button className="w-full">{t("login.button")}</Button>
+            <Button className="w-full">Login</Button>
           </form>
         )}
 
         {/* Link for new users */}
         <p className="mt-4 text-center text-sm text-gray-600">
-          {t("login.noAccount")}{" "}
+          Don't have an account?{" "}
           <span
             className="text-primary-600 font-semibold cursor-pointer hover:underline"
             onClick={() => navigate("/signup")}
           >
-            {t("login.signUp")}
+            Sign Up
           </span>
         </p>
       </div>
@@ -83,5 +81,3 @@ const Login = () => {
 };
 
 export default Login;
-
-

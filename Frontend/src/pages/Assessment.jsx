@@ -1,11 +1,9 @@
 // src/pages/Assessment.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 
 const Assessment = () => {
   const navigate = useNavigate();
-  const { t } = useTranslation();
 
   const handleStart = () => {
     const token = localStorage.getItem("token");
@@ -21,24 +19,21 @@ const Assessment = () => {
 
   return (
     <div className="max-w-3xl mx-auto py-20 text-center">
-  <h2 className="text-4xl font-bold mb-6 text-primary-700">
-        {t("assessment.title")}
+      <h2 className="text-4xl font-bold mb-6 text-primary-700">
+        Assessment
       </h2>
       <p className="text-lg text-gray-600 mb-8">
-        {t("assessment.description")}
+        Please start the assessment to evaluate your cognitive health.
       </p>
 
       <button
         onClick={handleStart}
-  className="bg-primary-600 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:bg-primary-700 transition"
+        className="bg-primary-600 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:bg-primary-700 transition"
       >
-        {t("assessment.button")}
+        Start Assessment
       </button>
     </div>
   );
 };
 
 export default Assessment;
-
-
-

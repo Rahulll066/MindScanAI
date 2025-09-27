@@ -1,9 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ClipboardList, Cpu, FileText, UserCheck } from "lucide-react";
-import { useTranslation } from "react-i18next";
 
 const HowItWorks = () => {
-  const { t } = useTranslation();
   const lineRef = useRef(null);
   const containerRef = useRef(null);
   const [fillWidth, setFillWidth] = useState(0);
@@ -27,23 +25,23 @@ const HowItWorks = () => {
 
   const steps = [
     {
-      title: t("steps.assessment.title"),
-      description: t("steps.assessment.desc"),
+      title: "Assessment",
+      description: "Complete a series of simple tests to evaluate cognitive health.",
       icon: ClipboardList,
     },
     {
-      title: t("steps.ai.title"),
-      description: t("steps.ai.desc"),
+      title: "AI Analysis",
+      description: "Our AI processes your results to detect early signs of dementia.",
       icon: Cpu,
     },
     {
-      title: t("steps.results.title"),
-      description: t("steps.results.desc"),
+      title: "Results",
+      description: "Get a clear report with insights and recommendations.",
       icon: FileText,
     },
     {
-      title: t("steps.action.title"),
-      description: t("steps.action.desc"),
+      title: "Action Plan",
+      description: "Receive personalized guidance and next steps to maintain brain health.",
       icon: UserCheck,
     },
   ];
@@ -51,12 +49,12 @@ const HowItWorks = () => {
   return (
     <section className="py-20 bg-white" ref={containerRef}>
       <h2 className="text-4xl font-bold text-center mb-12">
-        {t("howItWorks")}
+        How It Works
       </h2>
 
       <div className="max-w-6xl mx-auto px-4 relative flex flex-col md:flex-row justify-center md:justify-between items-center">
         {/* Static horizontal line (desktop only) */}
-  <div className="absolute top-16 left-6 right-6 h-1 bg-primary-100 hidden md:block z-0"></div>
+        <div className="absolute top-16 left-6 right-6 h-1 bg-primary-100 hidden md:block z-0"></div>
 
         {/* Animated fill line (desktop only) */}
         <div
@@ -89,5 +87,3 @@ const HowItWorks = () => {
 };
 
 export default HowItWorks;
-
-

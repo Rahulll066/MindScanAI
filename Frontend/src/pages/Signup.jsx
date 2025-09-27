@@ -3,10 +3,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
-import { useTranslation } from "react-i18next";
 
 const Signup = () => {
-  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -38,19 +36,19 @@ const Signup = () => {
       }, 1000);
     } catch (error) {
       console.error(error);
-      alert(t("signup.error")); // use translation
+      alert("Signup failed. Please try again.");
     }
   };
 
   return (
     <div className="flex items-center justify-center min-h-[80vh]">
       <div className="bg-white p-8 shadow-md rounded-lg w-96">
-        <h2 className="text-2xl font-bold mb-6">{t("signup.title")}</h2>
+        <h2 className="text-2xl font-bold mb-6">Sign Up</h2>
 
         {success ? (
           <div className="flex items-center justify-center text-green-600 font-medium space-x-2">
             <span className="text-2xl">✅</span>
-            <span>{t("signup.success")}</span>
+            <span>Signup successful!</span>
           </div>
         ) : (
           <>
@@ -58,7 +56,7 @@ const Signup = () => {
               <input
                 type="text"
                 name="firstName"
-                placeholder={t("signup.firstName")}
+                placeholder="First Name"
                 onChange={handleChange}
                 className="w-full border rounded px-3 py-2"
                 required
@@ -66,7 +64,7 @@ const Signup = () => {
               <input
                 type="text"
                 name="lastName"
-                placeholder={t("signup.lastName")}
+                placeholder="Last Name"
                 onChange={handleChange}
                 className="w-full border rounded px-3 py-2"
                 required
@@ -74,7 +72,7 @@ const Signup = () => {
               <input
                 type="email"
                 name="email"
-                placeholder={t("signup.email")}
+                placeholder="Email"
                 onChange={handleChange}
                 className="w-full border rounded px-3 py-2"
                 required
@@ -82,22 +80,22 @@ const Signup = () => {
               <input
                 type="password"
                 name="password"
-                placeholder={t("signup.password")}
+                placeholder="Password"
                 onChange={handleChange}
                 className="w-full border rounded px-3 py-2"
                 required
               />
-              <Button className="w-full">{t("signup.button")}</Button>
+              <Button className="w-full">Sign Up</Button>
             </form>
 
             {/* Link for existing users */}
             <p className="mt-4 text-center text-sm text-gray-600">
-              {t("signup.already")}{" "}
+              Already have an account?{" "}
               <span
                 className="text-primary-600 font-semibold cursor-pointer hover:underline"
                 onClick={() => navigate("/login")}
               >
-                {t("signup.signIn")}
+                Sign In
               </span>
             </p>
           </>
@@ -108,7 +106,3 @@ const Signup = () => {
 };
 
 export default Signup;
-
-
-
-
