@@ -8,7 +8,7 @@ const Navbar = () => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem("token") || null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const fetchUser = async (token) => {
     if (!token) return setUser(null);
@@ -38,28 +38,23 @@ const Navbar = () => {
     setMenuOpen(false);
   };
 
-  const toggleLanguage = () => {
-    const newLang = i18n.language === "en" ? "hi" : "en";
-    i18n.changeLanguage(newLang);
-    localStorage.setItem("lang", newLang);
-  };
-
   return (
     <nav className="flex justify-between items-center px-6 py-4 shadow-md bg-white relative">
-      <Link to="/" className="text-2xl font-bold text-blue-600">
+      {/* Logo + App Name */}
+      <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-blue-600">
+        <img
+          src="/assets/logo.jpg"  // logo from public/assets
+          alt="NeuroCare Logo"
+          className="w-12 h-12 object-contain"
+        />
         {t("appName")}
       </Link>
 
       <div className="flex gap-4 items-center">
-        {/* Language Switch Button */}
-        <Button variant="outline" onClick={toggleLanguage}>
-          {i18n.language === "en" ? "हिंदी" : "English"}
-        </Button>
-
         {user ? (
           <div className="relative">
             <Button variant="outline" onClick={() => setMenuOpen(!menuOpen)}>
-              {user.firstName || t("profile.title")} {/* fixed key */}
+              {user.firstName || t("profile.title")}
             </Button>
 
             {menuOpen && (
@@ -69,7 +64,7 @@ const Navbar = () => {
                   className="block px-4 py-2 hover:bg-gray-100"
                   onClick={() => setMenuOpen(false)}
                 >
-                  {t("profile.title")} {/* fixed key */}
+                  {t("profile.title")}
                 </Link>
                 <button
                   onClick={handleLogout}
@@ -83,10 +78,10 @@ const Navbar = () => {
         ) : (
           <>
             <Link to="/login">
-              <Button variant="outline">{t("login.button")}</Button> {/* fixed key */}
+              <Button variant="outline">{t("login.button")}</Button>
             </Link>
             <Link to="/signup">
-              <Button>{t("signup.button")}</Button> {/* fixed key */}
+              <Button>{t("signup.button")}</Button>
             </Link>
           </>
         )}
@@ -96,5 +91,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-

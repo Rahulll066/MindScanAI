@@ -1,38 +1,35 @@
 import { Shield, Brain, FileCheck, Users, RefreshCcw, CheckCircle } from "lucide-react";
-import { useTranslation, Trans } from "react-i18next";
 
 export default function WhyChoose() {
-  const { t } = useTranslation();
-
   const features = [
     {
-      title: t("features.advancedAI.title"),
-      description: t("features.advancedAI.desc"),
+      title: "Advanced AI",
+      description: "Cutting-edge AI technology for accurate cognitive assessment.",
       icon: Brain,
     },
     {
-      title: t("features.earlyDetection.title"),
-      description: t("features.earlyDetection.desc"),
+      title: "Early Detection",
+      description: "Identify signs of dementia in its earliest stages for better outcomes.",
       icon: FileCheck,
     },
     {
-      title: t("features.hipaa.title"),
-      description: t("features.hipaa.desc"),
+      title: "HIPAA Compliant",
+      description: "Your health data is protected with top security and privacy standards.",
       icon: Shield,
     },
     {
-      title: t("features.familyDashboard.title"),
-      description: t("features.familyDashboard.desc"),
+      title: "Family Dashboard",
+      description: "Easily share results and progress with your loved ones or caregivers.",
       icon: Users,
     },
     {
-      title: t("features.monitoring.title"),
-      description: t("features.monitoring.desc"),
+      title: "Continuous Monitoring",
+      description: "Track cognitive changes over time with regular assessments.",
       icon: RefreshCcw,
     },
     {
-      title: t("features.validated.title"),
-      description: t("features.validated.desc"),
+      title: "Clinically Validated",
+      description: "Our methods are backed by research and trusted by healthcare experts.",
       icon: CheckCircle,
     },
   ];
@@ -41,9 +38,7 @@ export default function WhyChoose() {
     <section className="py-16 bg-gray-50" id="why-choose">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
         <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-12">
-          <Trans i18nKey="whyChooseTitle">
-            Why Choose <span className="text-blue-600">MindScanAI</span>
-          </Trans>
+          Why Choose <span className="text-blue-600">NeurocareAI</span>
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -62,5 +57,3 @@ export default function WhyChoose() {
     </section>
   );
 }
-
-
