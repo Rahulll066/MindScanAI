@@ -10,15 +10,16 @@ import AboutDementia from "./pages/AboutDementia";
 import ServicesDoctor from "./pages/ServicesDoctor";
 import ServicesHospital from "./pages/ServicesHospital";
 import Assessment from "./pages/Assessment";
-import VeryEasyClock from "./pages/tests/VeryEasyClock";
-import EasyWordRemembering from "./pages/tests/EasyWordRemembering";
-import MediumStoryRemembering from "./pages/tests/MediumStoryRemembering";
-import HardNumbersConnecting from "./pages/tests/HardNumbersConnecting";
-import MemoryMatchGame from "./pages/tests/MemoryMatchGame";
 import Results from "./pages/Results";
 import Profile from "./pages/Profile";
 import './variables.css';
 import Chatbot from './components/Chatbot'; 
+import HardNumbersConnecting from "./pages/tests/HardNumbersConnecting";
+import MemoryMatchGame from "./pages/tests/MemoryMatchGame";
+import VeryEasyClock from "./pages/tests/VeryEasyClock";
+import ObjectNamingGame from "./pages/tests/ObjectNamingGame";
+import SerialSevensGame from "./pages/tests/SerialSevensGame";
+import InstructionChain from "./pages/tests/InstructionChain";
 
 function App() {
   return (
@@ -34,11 +35,15 @@ function App() {
         <Route path="/services/doctors" element={<ServicesDoctor />} />
         <Route path="/services/hospitals" element={<ServicesHospital />} />
         <Route path="/assessment" element={<Assessment />} />
-        <Route path="/assessment/very-easy-clock" element={<VeryEasyClock />} />
-        <Route path="/assessment/easy-word" element={<EasyWordRemembering />} />
-        <Route path="/assessment/medium-story" element={<MediumStoryRemembering />} />
+        
+        {/* 6 Game Test Routes  */}
         <Route path="/assessment/hard-numbers" element={<HardNumbersConnecting />} />
         <Route path="/assessment/memory-match" element={<MemoryMatchGame />} />
+        <Route path="/assessment/very-easy-clock" element={<VeryEasyClock />} />
+        <Route path="/assessment/object-naming" element={<ObjectNamingGame />} />
+        <Route path="/assessment/serial-sevens" element={<SerialSevensGame />} />
+        <Route path="/assessment/instruction-chain" element={<InstructionChain />} />
+        
         <Route path="/assessment/results" element={<Results />} />
       </Routes>
       <Footer />

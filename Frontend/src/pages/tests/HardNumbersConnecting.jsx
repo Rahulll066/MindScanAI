@@ -47,7 +47,7 @@ const HardNumbersConnecting = ({ count = 7 }) => {
     setSelectedSeq(prev=>{
       const newSeq=[...prev,num];
       setTarget(target+1);
-      if(newSeq.length===count){ updateScore("numbers",100); setTimeout(()=>navigate("/assessment/memory-match"),500); }
+      if(newSeq.length===count){ updateScore("numbers",100); setTimeout(()=>navigate("/assessment/object-naming"),500); }
       return newSeq;
     });
   };
