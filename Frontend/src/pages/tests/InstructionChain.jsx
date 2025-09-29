@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAssessment } from "../../context/AssessmentContext";
 
-const ThreeStepCommand = () => {
+const InstructionChain = () => {
   const [gameState, setGameState] = useState("start"); // start, instructions, playing, results
   const [currentStep, setCurrentStep] = useState(0);
   const [timeLeft, setTimeLeft] = useState(8);
