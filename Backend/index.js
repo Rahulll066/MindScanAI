@@ -8,7 +8,7 @@ import userRoutes from "./routes/userRoutes.js"; // <-- import userRoutes
 import path from "path";
 
 const app = express();
-app.use(cors({ origin: "https://neurocareai.onrender.com", credentials: true }));
+app.use(cors({ origin: "https://neuro-care-ai.vercel.app/", credentials: true }));
 app.use(json());
 
 connectDB(); // connect to MongoDB
