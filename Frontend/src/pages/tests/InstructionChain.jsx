@@ -37,7 +37,7 @@ const InstructionChain = () => {
     const randomSet = instructionSets[Math.floor(Math.random() * instructionSets.length)];
     setCurrentSet(randomSet);
     setGameState("instructions");
-    setTimeLeft(10);
+    setTimeLeft(8);
     setCurrentStep(0);
     setUserInput("");
     setClickSequence([]);
