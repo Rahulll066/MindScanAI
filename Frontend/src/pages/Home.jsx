@@ -58,12 +58,12 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="relative z-10 bg-gray-50 py-16">
+      <section className="relative z-10 bg-primary-50 py-7">
         <Testimonials />
       </section>
 
       {/* FAQ Section */}
-      <section className="relative z-10 bg-white py-16">
+      <section className="relative z-10 bg-white ">
         <FAQ />
       </section>
     </div>
