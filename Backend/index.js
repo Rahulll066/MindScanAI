@@ -7,8 +7,28 @@ import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js"; // <-- import userRoutes
 import path from "path";
 
+
 const app = express();
-app.use(cors({ origin: "https://neuro-care-ai.vercel.app/", credentials: true }));
+
+// Allow both frontend domains and handle dynamic origin
+const allowedOrigins = [
+	"https://neuro-care-ai.vercel.app",
+	"https://neurocareai.onrender.com"
+];
+app.use(
+	cors({
+		origin: function (origin, callback) {
+			// allow requests with no origin (like mobile apps, curl, etc.)
+			if (!origin) return callback(null, true);
+			if (allowedOrigins.includes(origin)) {
+				return callback(null, true);
+			} else {
+				return callback(new Error("Not allowed by CORS"));
+			}
+		},
+		credentials: true,
+	})
+);
 app.use(json());
 
 connectDB(); // connect to MongoDB
