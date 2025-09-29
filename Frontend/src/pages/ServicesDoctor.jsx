@@ -27,7 +27,7 @@ const doctors = [
   },
   {
     name: "Dr. Shravya",
-    field: "Mental Therapist",
+    field: "Mental Health Therapist",
     expertise: "Daily living support, memory exercises",
     image: "/assets/profiles/girldoctor.jpg",
   },

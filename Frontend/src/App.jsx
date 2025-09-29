@@ -17,6 +17,11 @@ import HardNumbersConnecting from "./pages/tests/HardNumbersConnecting";
 import MemoryMatchGame from "./pages/tests/MemoryMatchGame";
 import Results from "./pages/Results";
 import Profile from "./pages/Profile";
+import EditProfile from "./pages/EditProfile";
+import Streaks from "./pages/Streaks";
+import Progress from "./pages/Progress";
+import Caretakers from "./pages/Caretakers";
+import History from "./pages/History";
 import './variables.css';
 import Chatbot from './components/Chatbot'; 
 
@@ -29,6 +34,12 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/editprofile" element={<EditProfile />} />
+        <Route path="/profile/streaks" element={<Streaks />} />
+        <Route path="/profile/progress" element={<Progress />} />
+        <Route path="/profile/caretakers" element={<Caretakers />} />
+        <Route path="/profile/history" element={<History />} />
         <Route path="/about/mission" element={<AboutMission />} />
         <Route path="/about/dementia" element={<AboutDementia />} />
         <Route path="/services/doctors" element={<ServicesDoctor />} />
