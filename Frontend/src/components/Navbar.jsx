@@ -14,7 +14,7 @@ const Navbar = () => {
   const fetchUser = async (token) => {
     if (!token) return setUser(null);
     try {
-      const res = await axios.get("http://localhost:5000/api/user/profile", {
+      const res = await axios.get("https://neurocareai.onrender.com/api/user/profile", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUser(res.data);

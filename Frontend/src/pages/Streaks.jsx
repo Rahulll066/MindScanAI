@@ -15,7 +15,7 @@ const Streaks = () => {
       if (!token) return;
 
       try {
-        const res = await axios.get("http://localhost:5000/api/user/activity", {
+        const res = await axios.get("https://neurocareai.onrender.com/api/user/activity", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const dates = res.data.dates.map(d => new Date(d).toDateString());

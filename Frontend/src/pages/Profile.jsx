@@ -29,7 +29,7 @@ const Profile = () => {
       }
 
       try {
-        const res = await axios.get("http://localhost:5000/api/user/profile", {
+        const res = await axios.get("https://neurocareai.onrender.com/api/user/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -67,7 +67,7 @@ const Profile = () => {
           <div className="w-28 h-28 rounded-full bg-gray-200 overflow-hidden mb-4">
             {profile.avatar ? (
               <img
-                src={`http://localhost:5000/${profile.avatar}`}
+                src={`https://neurocareai.onrender.com/${profile.avatar}`}
                 alt="Profile Avatar"
                 className="w-full h-full object-cover"
               />

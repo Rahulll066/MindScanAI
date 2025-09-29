@@ -16,7 +16,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/signin", formData);
+      const res = await axios.post("https://neurocareai.onrender.com/api/signin", formData);
       localStorage.setItem("token", res.data.token);
 
       // Update Navbar immediately

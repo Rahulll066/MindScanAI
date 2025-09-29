@@ -23,7 +23,7 @@ const EditProfile = () => {
       if (!token) return;
 
       try {
-        const res = await axios.get("http://localhost:5000/api/user/profile", {
+        const res = await axios.get("https://neurocareai.onrender.com/api/user/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProfile(res.data);
@@ -65,7 +65,7 @@ const EditProfile = () => {
     if (newAvatar) formData.append("avatar", newAvatar);
 
     try {
-      await axios.put("http://localhost:5000/api/user/profile", formData, {
+      await axios.put("https://neurocareai.onrender.com/api/user/profile", formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       navigate("/profile"); // back to profile
