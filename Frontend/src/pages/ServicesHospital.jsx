@@ -7,7 +7,7 @@ const hospitals = [
     address: "Road No. 1, Banjara Hills, Hyderabad",
     phone: "+91 40 3041 8888",
     mapLink: "https://www.google.com/maps?q=Care+Hospitals+Banjara+Hills",
-    image: "/assets/hospitals/care.png",
+    image: "https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/care.png?updatedAt=1759128519290",
   },
   {
     name: "KIMS Hospitals, Secunderabad",
@@ -15,7 +15,7 @@ const hospitals = [
     address: "Minister Road, Secunderabad",
     phone: "+91 40 4488 5000",
     mapLink: "https://www.google.com/maps?q=KIMS+Hospitals+Secunderabad",
-    image: "/assets/hospitals/kims.jpg",
+    image: "https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/kims.jpg?updatedAt=1759128519495",
   },
   {
     name: "Apollo Hospitals, Jubilee Hills",
@@ -23,7 +23,7 @@ const hospitals = [
     address: "Road No. 72, Jubilee Hills, Hyderabad",
     phone: "+91 40 2360 7777",
     mapLink: "https://www.google.com/maps?q=Apollo+Hospitals+Jubilee+Hills",
-    image: "/assets/hospitals/apollo.webp",
+    image: "https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/apollo.webp?updatedAt=1759128519301",
   },
 ];
 

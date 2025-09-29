@@ -8,7 +8,7 @@ const testimonials = [
     name: "Dr. Sudheer",
     role: "Neurologist",
     rating: 5,
-    image: "/assets/profiles/dementia4.jpg",
+    image: "https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/dementia4.jpg?updatedAt=1759128518929",
   },
   {
     quote:
@@ -16,7 +16,7 @@ const testimonials = [
     name: "Ramya",
     role: "Patient",
     rating: 5,
-    image: "/assets/profiles/dementia5.jpg",
+    image: "https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/dementia5.jpg?updatedAt=1759128518781",
   },
   {
     quote:
@@ -24,7 +24,7 @@ const testimonials = [
     name: "Dr. Ramayya",
     role: "Chief of Neurology, Ramayya Clinic",
     rating: 5,
-    image: "/assets/profiles/dementia4.jpg",
+    image: "https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/dementia4.jpg?updatedAt=1759128518929",
   },
 ];
 

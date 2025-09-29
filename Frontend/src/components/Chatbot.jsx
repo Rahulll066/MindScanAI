@@ -271,7 +271,7 @@ const Chatbot = () => {
         >
           {/* Your Logo - Replace with your image path */}
           <img 
-            src="/assets/logo/logo.png" alt="NeuroCare" className="w-10 h-10 rounded-full object-cover"
+            src="https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/logo.png?updatedAt=1759128519455" alt="NeuroCare" className="w-10 h-10 rounded-full object-cover"
             onError={(e) => {
               e.target.style.display = 'none';
               e.target.nextSibling.style.display = 'block';
@@ -295,7 +295,7 @@ const Chatbot = () => {
                 {/* Your Logo in Header */}
                 <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center bg-white/20">
                     <img 
-                         src="/assets/logo/logo.png" 
+                         src="https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/logo.png?updatedAt=1759128519455" 
                          alt="NeuroCare" 
                          className="w-full h-full object-cover"
                          onError={(e) => {

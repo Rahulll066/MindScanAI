@@ -19,7 +19,7 @@ const Home = () => {
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover opacity-70 z-0"
         >
-          <source src="/assets/animations/brain.mp4" type="video/mp4" />
+          <source src="https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/brain.mp4?updatedAt=1759128446559" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 

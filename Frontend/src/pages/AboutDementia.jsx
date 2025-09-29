@@ -84,7 +84,7 @@ const AboutDementia = () => {
       <section className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
         <div>
           <img
-            src="/assets/dementia/dementia1.png"
+            src="https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/dementia1.png?updatedAt=1759128519321"
             alt="Brain illustration"
             className="rounded-2xl shadow-lg"
           />
@@ -171,7 +171,7 @@ const AboutDementia = () => {
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <img
-              src="/assets/dementia/dementia2.jpg"
+              src="https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/dementia2.jpg?updatedAt=1759128519005"
               alt="Brain health"
               className="rounded-2xl shadow-lg"
             />

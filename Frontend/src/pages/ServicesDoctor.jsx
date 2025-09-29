@@ -5,37 +5,37 @@ const doctors = [
     name: "Dr. Rahul",
     field: "Neurologist",
     expertise: "Memory disorders, Alzheimer’s disease",
-    image: "/assets/profiles/dementia4.jpg",
+    image: "https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/dementia4.jpg?updatedAt=1759128518929",
   },
   {
     name: "Dr. Sai",
     field: "Geriatric Psychiatrist",
     expertise: "Behavioral issues, cognitive therapy",
-    image: "/assets/profiles/dementia4.jpg",
+    image: "https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/dementia4.jpg?updatedAt=1759128518929",
   },
   {
     name: "Dr. Krishna",
     field: "Neuropsychologist",
     expertise: "Cognitive assessment, dementia evaluation",
-    image: "/assets/profiles/dementia4.jpg",
+    image: "https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/dementia4.jpg?updatedAt=1759128518929",
   },
   {
     name: "Dr. Brijesh",
     field: "General Neurologist",
     expertise: "Stroke, vascular dementia",
-    image: "/assets/profiles/dementia4.jpg",
+    image: "https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/dementia4.jpg?updatedAt=1759128518929",
   },
   {
     name: "Dr. Shravya",
     field: "Mental Health Therapist",
     expertise: "Daily living support, memory exercises",
-    image: "/assets/profiles/girldoctor.jpg",
+    image: "https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/girldoctor.jpg?updatedAt=1759128518739",
   },
   {
     name: "Dr. Amrutha",
     field: "Speech & Language Therapist",
     expertise: "Communication difficulties, cognitive therapy",
-    image: "/assets/profiles/girldoctor.jpg",
+    image: "https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/girldoctor.jpg?updatedAt=1759128518739",
   },
 ];
 

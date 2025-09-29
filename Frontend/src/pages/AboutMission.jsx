@@ -33,7 +33,7 @@ const AboutMission = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <img
-            src="/assets/logo/neurocare.jpg"
+            src="https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/neurocare.jpg?updatedAt=1759128519282"
             alt="Why This Project"
             className="rounded-xl shadow-lg object-cover"
           />
@@ -68,7 +68,7 @@ const AboutMission = () => {
             </p>
           </div>
           <img
-            src="/assets/dementia/dementia3.jpg"
+            src="https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/dementia3.jpg?updatedAt=1759128519373"
             alt="Our Approach"
             className="rounded-xl shadow-lg object-cover"
           />

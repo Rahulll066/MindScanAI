@@ -48,7 +48,7 @@ const Navbar = () => {
             className="flex items-center text-2xl font-bold text-primary-600"
           >
             <img
-              src="/assets/logo/logo.png"
+              src="https://ik.imagekit.io/0tglkhk4r/NeuroCareAI/logo.png?updatedAt=1759128519455"
               alt="NeuroCare Logo"
               className="h-16 w-auto object-contain -mr-1"
             />
