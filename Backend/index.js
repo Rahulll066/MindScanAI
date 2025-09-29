@@ -13,7 +13,8 @@ const app = express();
 // Allow both frontend domains and handle dynamic origin
 const allowedOrigins = [
 	"https://neuro-care-ai.vercel.app",
-	"https://neurocareai.onrender.com"
+	"https://neurocareai.onrender.com",
+    'http://localhost:5173'
 ];
 app.use(
 	cors({
