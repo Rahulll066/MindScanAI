@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api"; // backend URL
+const API_URL = "https://neurocareai.onrender.com"; // backend URL
 
 // Signup API call
 export const signup = async (userData) => {
