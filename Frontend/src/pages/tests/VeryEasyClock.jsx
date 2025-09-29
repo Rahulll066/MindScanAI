@@ -64,7 +64,7 @@ const VeryEasyClock = () => {
     if (selected.m === targetTime.m) score += 50;
 
     updateScore("clock", score);
-    navigate("/assessment/easy-word");
+    navigate("/assessment/instruction-chain");
   };
 
   return (
