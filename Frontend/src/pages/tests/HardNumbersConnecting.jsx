@@ -92,7 +92,7 @@ const HardNumbersConnecting = ({ count = 7 }) => {
 
       <div className="mt-4 text-center">
         <button onClick={() => {setSelectedSeq([]); setTarget(1); setPoints([]); setTimeout(()=>window.dispatchEvent(new Event("resize")),60);}} className="px-4 py-2 bg-gray-200 rounded mr-3">Restart</button>
-        <button onClick={() => {updateScore("numbers",Math.round((selectedSeq.length/count)*100)); navigate("/assessment/memory-match");}} className="px-4 py-2 bg-red-500 text-white rounded">Give Up</button>
+        <button onClick={() => {updateScore("numbers",Math.round((selectedSeq.length/count)*100)); navigate("/assessment/object-naming");}} className="px-4 py-2 bg-red-500 text-white rounded">Give Up</button>
       </div>
 
       <style>{`@keyframes wrongPulse{0%{box-shadow:0 0 0 0 rgba(255,0,0,0.22);}100%{box-shadow:0 0 0 16px rgba(255,0,0,0);}}`}</style>
