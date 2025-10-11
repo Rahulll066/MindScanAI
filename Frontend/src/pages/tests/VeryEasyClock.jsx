@@ -23,38 +23,52 @@ const VeryEasyClock = () => {
   };
   const { hourAngle, minuteAngle } = getAngles(selected.h, selected.m);
 
-  // Mouse move handler
-  const handleMove = (e) => {
+  // General move handler (mouse or touch)
+  const handleMove = (clientX, clientY) => {
     if (!dragging || !svgRef.current) return;
 
     const rect = svgRef.current.getBoundingClientRect();
     const cx = rect.width / 2;
     const cy = rect.height / 2;
 
-    const x = e.clientX - rect.left - cx;
-    const y = e.clientY - rect.top - cy;
+    const x = clientX - rect.left - cx;
+    const y = clientY - rect.top - cy;
 
     let angle = (Math.atan2(y, x) * 180) / Math.PI + 90;
     if (angle < 0) angle += 360;
 
     if (dragging === "minute") {
-      const m = Math.round(angle / 6) % 60; // 6° per minute
+      const m = Math.round(angle / 6) % 60;
       setSelected((prev) => ({ ...prev, m }));
     } else if (dragging === "hour") {
-      const h = Math.round(angle / 30) % 12 || 12; // 30° per hour
+      const h = Math.round(angle / 30) % 12 || 12;
       setSelected((prev) => ({ ...prev, h }));
     }
   };
 
-  // Mouse up → stop dragging
-  const handleUp = () => setDragging(null);
+  // Mouse & Touch event handlers
+  const handleMouseMove = (e) => handleMove(e.clientX, e.clientY);
+  const handleTouchMove = (e) => {
+    const touch = e.touches[0];
+    if (touch) handleMove(touch.clientX, touch.clientY);
+  };
+
+  const stopDragging = () => setDragging(null);
 
   useEffect(() => {
-    window.addEventListener("mousemove", handleMove);
-    window.addEventListener("mouseup", handleUp);
+    // Mouse events
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseup", stopDragging);
+
+    // Touch events
+    window.addEventListener("touchmove", handleTouchMove, { passive: false });
+    window.addEventListener("touchend", stopDragging);
+
     return () => {
-      window.removeEventListener("mousemove", handleMove);
-      window.removeEventListener("mouseup", handleUp);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", stopDragging);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", stopDragging);
     };
   });
 
@@ -83,7 +97,7 @@ const VeryEasyClock = () => {
         width="250"
         height="250"
         viewBox="0 0 200 200"
-        className="mx-auto select-none"
+        className="mx-auto select-none touch-none"
       >
         {/* Clock face */}
         <circle
@@ -124,6 +138,7 @@ const VeryEasyClock = () => {
           stroke="black"
           strokeWidth="5"
           onMouseDown={() => setDragging("hour")}
+          onTouchStart={() => setDragging("hour")}
           style={{ cursor: "grab" }}
         />
 
@@ -136,6 +151,7 @@ const VeryEasyClock = () => {
           stroke="red"
           strokeWidth="3"
           onMouseDown={() => setDragging("minute")}
+          onTouchStart={() => setDragging("minute")}
           style={{ cursor: "grab" }}
         />
 
@@ -149,7 +165,7 @@ const VeryEasyClock = () => {
 
       <button
         onClick={handleSubmit}
-  className="mt-6 bg-primary-600 text-white py-2 px-6 rounded-lg hover:bg-primary-700"
+        className="mt-6 bg-primary-600 text-white py-2 px-6 rounded-lg hover:bg-primary-700"
       >
         Submit & Continue
       </button>
@@ -158,4 +174,3 @@ const VeryEasyClock = () => {
 };
 
 export default VeryEasyClock;
-
